@@ -1,24 +1,30 @@
-# README
+# マネ×マネ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+日々、ご自身が "何に"、"どのくらい" お金を使用しているのか可視化することで、お金の管理が苦手な人でも管理できるようになる記録サイト。お金の管理（money management）
 
-Things you may want to cover:
+### テーマを選んだ理由
+もともとノートに家計簿をつけていたが、忙しくなるとつい後回しにして、家計簿と向き合う時間がなくなってしまい、自由に使えるお金がどのくらいあるのか把握できていない状況があり、もっと気軽に家計簿をつけることができ、お金の管理ができるようになれば便利だと考え、このテーマにしました。
 
-* Ruby version
+### ターゲットユーザ
+*お金の管理が好きな人
+*家計簿が続かない人
+*節約したい、楽しく貯金がしたい人
 
-* System dependencies
+### 主な利用シーン
+収入・固定支出（毎月決まった支出）を入力し、自由に使えるお金がいくらあるのか把握できる
 
-* Configuration
+## 設計書
+...
 
-* Database creation
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
