@@ -1,0 +1,2 @@
+module MonthRecordsHelper
+end
