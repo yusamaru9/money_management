@@ -2,7 +2,7 @@ class CreateMonthRecods < ActiveRecord::Migration[6.1]
   def change
     create_table :month_recods do |t|
       
-      t.date :year_month, null: false #毎月1日で固定する
+      t.date :year_month, null: false
       
       t.integer :brought_forward, default: 0
       t.integer :income, default: 0
