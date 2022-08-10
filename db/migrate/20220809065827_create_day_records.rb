@@ -1,6 +1,6 @@
-class CreateDayRecods < ActiveRecord::Migration[6.1]
+class CreateDayRecords < ActiveRecord::Migration[6.1]
   def change
-    create_table :day_recods do |t|
+    create_table :day_records do |t|
       
       t.date :year_month_date, null:false
       

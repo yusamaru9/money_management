@@ -1,4 +1,4 @@
-class DayRecod < ApplicationRecord
+class DayRecord < ApplicationRecord
   
   belongs_to :user
   

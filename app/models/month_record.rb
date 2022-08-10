@@ -1,4 +1,4 @@
-class MonthRecod < ApplicationRecord
+class MonthRecord < ApplicationRecord
   
   belongs_to :user
   

@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2022_08_09_072625) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "day_recods", force: :cascade do |t|
+  create_table "day_records", force: :cascade do |t|
     t.date "year_month_date", null: false
     t.integer "food_cost", default: 0
     t.integer "commodity", default: 0
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2022_08_09_072625) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "month_recods", force: :cascade do |t|
+  create_table "month_records", force: :cascade do |t|
     t.date "year_month", null: false
     t.integer "brought_forward", default: 0
     t.integer "income", default: 0
