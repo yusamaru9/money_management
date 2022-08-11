@@ -1,1 +1,6 @@
 <h1>各月収支一覧</h1>
+
+<% @month_records.each do |month_record| %>
+
+  <p>前月からのくりこし<%= @month_record.brought_forward %></p>
+<% end %>

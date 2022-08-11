@@ -1,5 +1,7 @@
 class MonthRecordsController < ApplicationController
   def index
+    @month_records = MonthRecord.all
+    
   end
 
   def new
@@ -7,12 +9,13 @@ class MonthRecordsController < ApplicationController
   end
   
   def create
-    @month_record = MonthRecord.new (month_record_params)
-    month_record.save
-    redirect_to day_record_path(@month_record)
+    @month_record = MonthRecord.new(month_record_params)
+    @month_record.save
+    redirect_to month_records_path 
   end
 
   def show
+    @month_record = MonthRecord.find(params[:id])
   end
 
   def edit
@@ -21,6 +24,6 @@ class MonthRecordsController < ApplicationController
   private
   
   def month_record_params
-    params.require(:month_record).permit(:brought_forward, :income, :water_fare, :gas_fare, :elecltrical_fare, :telephone_fare, :deposit, :insurance, :credit_card, :month_other)
+    params.permit(:year_month, :brought_forward, :income, :water_fare, :gas_fare, :electrical_fare, :telephone_fare, :deposit, :insurance, :credit_card, :month_other)
   end
 end

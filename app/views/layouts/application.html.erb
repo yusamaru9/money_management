@@ -17,6 +17,29 @@
         <li>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
+        
+        <nav>
+          <ul>
+            <li>
+              <%= link_to "カレンダー", users_show_path %>
+            </li>
+            <li>
+              <%= link_to "今月の記録", new_month_record_path %>
+            </li>
+            <li>
+              <%= link_to "今日の記録", new_day_record_path %>
+            </li>
+            <li>
+              <%= link_to "各月収支一覧", month_records_path %>
+            </li>
+            <li>
+              <%= link_to "週間支出一覧", day_records_path %>
+            </li>
+            <li>
+              <!--<= link_to "ブックマーク", day_record_bookmarks_path %>-->
+            </li>
+          </ul>
+        </nav>
       <% else %>
         <li>
           <%= link_to "新規登録", new_user_registration_path %>

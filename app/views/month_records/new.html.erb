@@ -4,18 +4,20 @@
       <%= form_with model: @MonthRecord, url: month_records_path, method: :post do |f| %>
       
         <h6>今月の収入</h6>
+          <%= f.date_field :year_month %>
           <label>前月からのくりこし</label>
             <%= f.number_field :brought_forward %>
           <label>収入</label>
             <%= f.number_field :income %>
             
         <h6>今月の決まっている支出</h6>
+        
           <label>水道</label>
             <%= f.number_field :water_fare %>
           <label>ガス</label>
             <%= f.number_field :gas_fare %>
           <label>電気</label>
-            <%= f.number_field :elecltrical_fare %>
+            <%= f.number_field :electrical_fare %>
           <label>電話</label>
             <%= f.number_field :telephone_fare %>
           <label>貯金</label>
