@@ -1,1 +1,34 @@
 <h3>○月　支出・決まっている支出編集</h3>
+
+<h5>内容</h5>
+  
+      <%= form_with model: @month_record, url: month_records_path, method: :post do |f| %>
+      
+        <h6>今月の収入</h6>
+          <%= f.date_field :year_month %><!--month_field-->
+          <label>前月からのくりこし</label>
+            <%= f.number_field :brought_forward %>
+          <label>収入</label>
+            <%= f.number_field :income %>
+            
+        <h6>今月の決まっている支出</h6>
+        
+          <label>水道</label>
+            <%= f.number_field :water_fare %>
+          <label>ガス</label>
+            <%= f.number_field :gas_fare %>
+          <label>電気</label>
+            <%= f.number_field :electrical_fare %>
+          <label>電話</label>
+            <%= f.number_field :telephone_fare %>
+          <label>貯金</label>
+            <%= f.number_field :deposit %>
+          <label>保険</label>
+            <%= f.number_field :insurance %>
+          <label>クレジットカード</label>
+            <%= f.number_field :credit_card %>
+          <label>その他</label>
+            <%= f.number_field :month_other %>
+            
+          <%= f.submit "変更する" %>
+      <% end %>

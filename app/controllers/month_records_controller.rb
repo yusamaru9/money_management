@@ -11,7 +11,7 @@ class MonthRecordsController < ApplicationController
     @month_record = MonthRecord.new(month_record_params)
     @month_record.user_id = current_user.id
     @month_record.save
-    redirect_to month_records_path 
+    redirect_to month_record_path(@month_record) 
   end
 
   def show
@@ -19,6 +19,7 @@ class MonthRecordsController < ApplicationController
   end
 
   def edit
+    @month_record = MonthRecord.find(params[:id])
   end
   
   private

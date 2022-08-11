@@ -1,7 +1,7 @@
 <h1>各月収支一覧</h1>
 
 <% @month_records.each do |month_record| %>
-  <p><%= month_record.year_month %></p>
+  <p><%= month_record.year_month.strftime("%Y年%m月") %></p>
 
   <p>前月からのくりこし<%= (month_record.brought_forward).to_s(:delimited) %></p>
   <p>収入<%= (month_record.income).to_s(:delimited) %></p>
