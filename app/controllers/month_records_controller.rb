@@ -1,7 +1,6 @@
 class MonthRecordsController < ApplicationController
   def index
     @month_records = MonthRecord.all
-    
   end
 
   def new

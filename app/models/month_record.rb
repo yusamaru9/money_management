@@ -13,4 +13,15 @@ class MonthRecord < ApplicationRecord
   attribute :credit_card, :integer, default: 0
   attribute :month_other, :integer, default: 0
   
+  def income_total #収入合計
+    (brought_forward + income)
+  end
+  
+  def expenditure_total #支出合計
+    (water_fare + gas_fare + electrical_fare + telephone_fare + deposit + insurance + credit_card + month_other)
+  end
+  
+  def freedom_money #使えるお金
+    (income_total - expenditure_total)
+  end
 end
