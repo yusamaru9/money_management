@@ -2,7 +2,9 @@ class CreateDayRecords < ActiveRecord::Migration[6.1]
   def change
     create_table :day_records do |t|
       
-      t.date :year_month_date, null:false
+      t.integer :user_id, null: false
+      
+      t.date :year_month_date, null: false
       
       t.integer :food_cost, default: 0
       t.integer :commodity, default: 0

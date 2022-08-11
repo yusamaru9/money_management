@@ -13,17 +13,22 @@
 ActiveRecord::Schema.define(version: 2022_08_09_072625) do
 
   create_table "bookmarks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "day_record_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "comments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "day_record_id", null: false
     t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "day_records", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.date "year_month_date", null: false
     t.integer "food_cost", default: 0
     t.integer "commodity", default: 0
@@ -45,6 +50,7 @@ ActiveRecord::Schema.define(version: 2022_08_09_072625) do
   end
 
   create_table "month_records", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.date "year_month", null: false
     t.integer "brought_forward", default: 0
     t.integer "income", default: 0

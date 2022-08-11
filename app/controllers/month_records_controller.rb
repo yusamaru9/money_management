@@ -10,6 +10,7 @@ class MonthRecordsController < ApplicationController
   
   def create
     @month_record = MonthRecord.new(month_record_params)
+    @month_record.user_id = current_user.id
     @month_record.save
     redirect_to month_records_path 
   end
@@ -24,6 +25,6 @@ class MonthRecordsController < ApplicationController
   private
   
   def month_record_params
-    params.permit(:year_month, :brought_forward, :income, :water_fare, :gas_fare, :electrical_fare, :telephone_fare, :deposit, :insurance, :credit_card, :month_other)
+    params.require(:month_record).permit(:year_month, :brought_forward, :income, :water_fare, :gas_fare, :electrical_fare, :telephone_fare, :deposit, :insurance, :credit_card, :month_other)
   end
 end

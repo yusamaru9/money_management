@@ -1,7 +1,7 @@
 <h3>月：記録</h3>
   <h5>内容</h5>
   
-      <%= form_with model: @MonthRecord, url: month_records_path, method: :post do |f| %>
+      <%= form_with model: @month_record, url: month_records_path, method: :post do |f| %>
       
         <h6>今月の収入</h6>
           <%= f.date_field :year_month %>
@@ -28,6 +28,6 @@
             <%= f.number_field :credit_card %>
           <label>その他</label>
             <%= f.number_field :month_other %>
-          
+            
           <%= f.submit "記録する" %>
       <% end %>
