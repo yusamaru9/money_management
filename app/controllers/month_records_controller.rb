@@ -22,6 +22,12 @@ class MonthRecordsController < ApplicationController
     @month_record = MonthRecord.find(params[:id])
   end
   
+  def update
+    month_record = MonthRecord.find(params[:id])
+    month_record.update(month_record_params)
+    redirect_to month_record_path(month_record.id)
+  end
+  
   private
   
   def month_record_params

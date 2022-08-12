@@ -4,7 +4,8 @@
       <%= form_with model: @month_record, url: month_records_path, method: :post do |f| %>
       
         <h6>今月の収入</h6>
-          <%= f.date_field :year_month %><!--month_field-->
+          <%= f.date_select :year_month, {:discard_day => true, :use_month_numbers => true } %> <!--オプション：日の選択ボックスを非表示、月を数字で表示-->
+          
           <label>前月からのくりこし</label>
             <%= f.number_field :brought_forward %>
           <label>収入</label>
