@@ -1,1 +1,29 @@
 <h3>○月○日　支出記録</h3>
+
+<%= form_with model: @day_record, url: day_records_path, method: :post do |f| %>
+
+  <%= f.date_select :year_month_date, { :use_month_numbers => true } %>
+  <label>食費</label>
+    <%= f.number_field :food_cost %>円
+  <label>日用品</label>
+    <%= f.number_field :commodity %>円
+  <label>被服</label>
+    <%= f.number_field :clothing %>円
+  <label>教育・教養</label>
+    <%= f.number_field :educate %>円
+  <label>医療・美容</label>
+    <%= f.number_field :medical_beauty %>円
+  <label>交通</label>
+    <%= f.number_field :transport %>円
+  <label>交際</label>
+    <%= f.number_field :socializing %>円
+  <label>娯楽</label>
+    <%= f.number_field :amusement %>円
+  <label>その他</label>
+    <%= f.number_field :day_other %>円
+  <label>メモ・日記</label>
+    <%= f.text_field :memo %>
+    
+  <%= f.submit "記録する" %>
+  
+<% end %>

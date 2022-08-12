@@ -1,1 +1,12 @@
 <h3>○日　支出詳細</h3>
+
+<p>食費<%= (@day_record.food_cost).to_s(:delimited) %>円</p>
+<p>日用品<%= (@day_record.commodity).to_s(:delimited) %>円</p>
+<p>被服<%= (@day_record.clothing).to_s(:delimited) %>円</p>
+<p>教育・教養<%= (@day_record.educate).to_s(:delimited) %>円</p>
+<p>医療・美容<%= (@day_record.medical_beauty).to_s(:delimited) %>円</p>
+<p>交通<%= (@day_record.transport).to_s(:delimited) %>円</p>
+<p>交際<%= (@day_record.socializing).to_s(:delimited) %>円</p>
+<p>娯楽<%= (@day_record.amusement).to_s(:delimited) %>円</p>
+<p>その他<%= (@day_record.day_other).to_s(:delimited) %>円</p>
+<p>メモ・日記<%= @day_record.memo %></p>

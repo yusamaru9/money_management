@@ -1,4 +1,5 @@
 class MonthRecordsController < ApplicationController
+  
   def index
     @month_records = MonthRecord.all
   end
@@ -33,4 +34,5 @@ class MonthRecordsController < ApplicationController
   def month_record_params
     params.require(:month_record).permit(:year_month, :brought_forward, :income, :water_fare, :gas_fare, :electrical_fare, :telephone_fare, :deposit, :insurance, :credit_card, :month_other)
   end
+  
 end

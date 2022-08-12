@@ -2,25 +2,25 @@
 
 <p>今月の収入</p>
 
-<p>前月からのくりこし<%= (@month_record.brought_forward).to_s(:delimited) %></p>
-<p>収入<%= (@month_record.income).to_s(:delimited) %></p>
+<p>前月からのくりこし<%= (@month_record.brought_forward).to_s(:delimited) %>円</p>
+<p>収入<%= (@month_record.income).to_s(:delimited) %>円</p>
 
-<p>収入合計<%= (@month_record.income_total).to_s(:delimited) %></p>
+<p>収入合計<%= (@month_record.income_total).to_s(:delimited) %>円</p>
 
 
 <p>今月の決まっている支出</p>
 
-<p>水道<%= (@month_record.water_fare).to_s(:delimited) %></p>
-<p>ガス<%= (@month_record.gas_fare).to_s(:delimited) %></p>
-<p>電気<%= (@month_record.gas_fare).to_s(:delimited) %></p>
-<p>電話<%= (@month_record.telephone_fare).to_s(:delimited) %></p>
-<p>貯金<%= (@month_record.deposit).to_s(:delimited) %></p>
-<p>保険<%= (@month_record.insurance).to_s(:delimited) %></p>
-<p>クレジットカード<%= (@month_record.credit_card).to_s(:delimited) %></p>
-<p>その他<%= (@month_record.month_other).to_s(:delimited) %></p>
+<p>水道<%= (@month_record.water_fare).to_s(:delimited) %>円</p>
+<p>ガス<%= (@month_record.gas_fare).to_s(:delimited) %>円</p>
+<p>電気<%= (@month_record.gas_fare).to_s(:delimited) %>円</p>
+<p>電話<%= (@month_record.telephone_fare).to_s(:delimited) %>円</p>
+<p>貯金<%= (@month_record.deposit).to_s(:delimited) %>円</p>
+<p>保険<%= (@month_record.insurance).to_s(:delimited) %>円</p>
+<p>クレジットカード<%= (@month_record.credit_card).to_s(:delimited) %>円</p>
+<p>その他<%= (@month_record.month_other).to_s(:delimited) %>円</p>
 
-<p>支出合計<%= (@month_record.expenditure_total).to_s(:delimited) %></p>
+<p>支出合計<%= (@month_record.expenditure_total).to_s(:delimited) %>円</p>
 
-<p>今月の使えるお金<%= (@month_record.freedom_money).to_s(:delimited) %></p>
+<p>今月の使えるお金<%= (@month_record.freedom_money).to_s(:delimited) %>円</p>
 
 <p><%= link_to "編集する", edit_month_record_path %></p>

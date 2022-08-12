@@ -1,22 +1,23 @@
 <h1>各月収支一覧</h1>
 
 <% @month_records.each do |month_record| %>
-  <p><%= month_record.year_month.strftime("%Y年%m月") %></p>
 
-  <p>前月からのくりこし<%= (month_record.brought_forward).to_s(:delimited) %></p>
-  <p>収入<%= (month_record.income).to_s(:delimited) %></p>
-  <p>収入合計<%= (month_record.income_total).to_s(:delimited) %></p>
+  <p><%= link_to month_record.year_month.strftime("%Y年%m月"), month_record_path(month_record) %></p>
+
+  <p>前月からのくりこし<%= (month_record.brought_forward).to_s(:delimited) %>円</p>
+  <p>収入<%= (month_record.income).to_s(:delimited) %>円</p>
+  <p>収入合計<%= (month_record.income_total).to_s(:delimited) %>円</p>
   
-  <p>水道<%= (month_record.water_fare).to_s(:delimited) %></p>
-  <p>ガス<%= (month_record.gas_fare).to_s(:delimited) %></p>
-  <p>電気<%= (month_record.electrical_fare).to_s(:delimited) %></p>
-  <p>電話<%= (month_record.telephone_fare).to_s(:delimited) %></p>
-  <p>貯金<%= (month_record.deposit).to_s(:delimited) %></p>
-  <p>保険<%= (month_record.insurance).to_s(:delimited) %></p>
-  <p>クレジットカード<%= (month_record.credit_card).to_s(:delimited) %></p>
-  <p>その他<%= (month_record.month_other).to_s(:delimited) %></p>
+  <p>水道<%= (month_record.water_fare).to_s(:delimited) %>円</p>
+  <p>ガス<%= (month_record.gas_fare).to_s(:delimited) %>円</p>
+  <p>電気<%= (month_record.electrical_fare).to_s(:delimited) %>円</p>
+  <p>電話<%= (month_record.telephone_fare).to_s(:delimited) %>円</p>
+  <p>貯金<%= (month_record.deposit).to_s(:delimited) %>円</p>
+  <p>保険<%= (month_record.insurance).to_s(:delimited) %>円</p>
+  <p>クレジットカード<%= (month_record.credit_card).to_s(:delimited) %>円</p>
+  <p>その他<%= (month_record.month_other).to_s(:delimited) %>円</p>
   
-  <p>支出合計<%= (month_record.expenditure_total).to_s(:delimited) %></p>
+  <p>支出合計<%= (month_record.expenditure_total).to_s(:delimited) %>円</p>
   
-  <p>使えるお金<%= (month_record.freedom_money).to_s(:delimited) %></p>
+  <p>使えるお金<%= (month_record.freedom_money).to_s(:delimited) %>円</p>
 <% end %>
