@@ -18,4 +18,8 @@ class DayRecord < ApplicationRecord
   def day_expenditure_total #1日の支出合計
     (food_cost + commodity + clothing + educate + medical_beauty + transport + socializing + amusement + day_other)
   end
+  
+  def start_time
+    self.year_month_date
+  end
 end

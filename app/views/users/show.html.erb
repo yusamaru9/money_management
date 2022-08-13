@@ -1,4 +1,8 @@
-<h1>カレンダー</h1>
-<%= month_calendar do |date| %>
-  <%= date %>
+<%= month_calendar events: @day_records do |date, day_records| %>
+  <%= date.day %>
+  <% day_records.each do |day_record| %>
+  <div>
+    <%= day_record.day_expenditure_total %>
+  </div>
+  <% end %>
 <% end %>
