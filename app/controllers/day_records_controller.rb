@@ -1,6 +1,7 @@
 class DayRecordsController < ApplicationController
   
   def index
+    @day_records = DayRecord.all
   end
 
   def new
@@ -19,6 +20,13 @@ class DayRecordsController < ApplicationController
   end
 
   def edit
+    @day_record = DayRecord.find(params[:id])
+  end
+  
+  def update
+    day_record = DayRecord.find(params[:id])
+    day_record.update(day_record_params)
+    redirect_to day_record_path(day_record.id)
   end
   
   private

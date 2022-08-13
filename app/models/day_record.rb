@@ -15,4 +15,7 @@ class DayRecord < ApplicationRecord
   attribute :amusement, :integer, default: 0
   attribute :day_other, :integer, default: 0
   
+  def day_expenditure_total
+    (food_cost + commodity + clothing + educate + medical_beauty + transport + socializing + amusement + day_other)
+  end
 end

@@ -1,1 +1,26 @@
-<h3>○月○日　支出編集</h3>
+<h3><%= @day_record.year_month_date.strftime("%Y年%m月%d日") %>　支出編集</h3>
+
+<%= form_with model: @day_record, url: day_record_path(@day_record.id), method: :patch do |f| %>
+  <label>食費</label>
+    <%= f.number_field :food_cost %>
+  <label>日用品</label>
+    <%= f.number_field :commodity %>
+  <label>被服</label>
+    <%= f.number_field :clothing %>
+  <label>教育・教養</label>
+    <%= f.number_field :educate %>
+  <label>医療・美容</label>
+    <%= f.number_field :medical_beauty %>
+  <label>交通</label>
+    <%= f.number_field :transport %>
+  <label>交際</label>
+    <%= f.number_field :socializing %>
+  <label>娯楽</label>
+    <%= f.number_field :amusement %>
+  <label>その他</label>
+    <%= f.number_field :day_other %>
+  <label>メモ・日記</label>
+    <%= f.text_field :memo %>
+    
+  <%= f.submit "変更する" %>
+<% end %>

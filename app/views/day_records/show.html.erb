@@ -1,4 +1,4 @@
-<h3>○日　支出詳細</h3>
+<h3><%= @day_record.year_month_date.strftime("%Y年%m月%d日") %>　支出詳細</h3>
 
 <p>食費<%= (@day_record.food_cost).to_s(:delimited) %>円</p>
 <p>日用品<%= (@day_record.commodity).to_s(:delimited) %>円</p>
@@ -9,4 +9,9 @@
 <p>交際<%= (@day_record.socializing).to_s(:delimited) %>円</p>
 <p>娯楽<%= (@day_record.amusement).to_s(:delimited) %>円</p>
 <p>その他<%= (@day_record.day_other).to_s(:delimited) %>円</p>
+
+<p>合計金額<%= (@day_record.day_expenditure_total).to_s(:delimited) %>円</p>
+
 <p>メモ・日記<%= @day_record.memo %></p>
+
+<p><%= link_to "編集する", edit_day_record_path %></p>
