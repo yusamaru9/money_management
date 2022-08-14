@@ -24,4 +24,5 @@ class MonthRecord < ApplicationRecord
   def freedom_money #使えるお金
     (income_total - expenditure_total)
   end
+  
 end

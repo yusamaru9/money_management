@@ -1,7 +1,7 @@
 class MonthRecordsController < ApplicationController
   
   def index
-    @month_records = MonthRecord.all
+    @month_records = current_user.month_records.all #ログインしているユーザーの記録だけが全て表示、アソシエーションでuserとmonth_recordは1対多の関係
   end
 
   def new
@@ -11,8 +11,22 @@ class MonthRecordsController < ApplicationController
   def create
     @month_record = MonthRecord.new(month_record_params)
     @month_record.user_id = current_user.id
-    @month_record.save
-    redirect_to month_record_path(@month_record) 
+    
+    @month_records = current_user.month_records.all
+    check = false
+    @month_records.each do |month_record|
+      if month_record.year_month == @month_record.year_month
+        check = true
+      end
+    end
+    
+    if check
+      flash[:check] = "記録は、月に一度までです。"
+      redirect_to new_month_record_path
+    else
+      @month_record.save
+      redirect_to month_record_path(@month_record)
+    end
   end
 
   def show
@@ -29,8 +43,8 @@ class MonthRecordsController < ApplicationController
     redirect_to month_record_path(month_record.id)
   end
   
-  def bookmarks
-    @bookmarks = Bookmark.where(user_id: current_user.id)
+  def bookmarks #bookmarkの中のuserIDカラムがcurrent_userIDを探している
+    @bookmarks = Bookmark.where(user_id: current_user.id) #@bookmarks = current_user.bookmarks.allと同じ意味
   end
   
   private

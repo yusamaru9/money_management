@@ -11,8 +11,22 @@ class DayRecordsController < ApplicationController
   def create
     @day_record = DayRecord.new(day_record_params)
     @day_record.user_id = current_user.id
-    @day_record.save
-    redirect_to day_record_path(@day_record)
+    
+    @day_records = current_user.day_records.all #自分の記録の全て
+    @check = false
+    @day_records.each do |day_record| #自分の記録の全てを一つずつ取り出して同じ日付かどうか処理する
+      if day_record.year_month_date == @day_record.year_month_date
+        @check = true #同じ日付があれはtrueになる
+      end
+    end
+    
+    if @check #trueなら
+      flash[:check] = "投稿は、一日に一度までです。"
+      redirect_to new_day_record_path
+    else # falseなら
+      @day_record.save
+      redirect_to day_record_path(@day_record)
+    end
   end
 
   def show

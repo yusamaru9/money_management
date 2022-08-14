@@ -1,5 +1,7 @@
 <h3>支出記録</h3>
 
+<%= flash[:check] %>
+
 <%= form_with model: @day_record, url: day_records_path, method: :post do |f| %>
 
   <%= f.date_select :year_month_date, { :use_month_numbers => true } %>

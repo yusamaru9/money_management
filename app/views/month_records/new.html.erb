@@ -1,4 +1,7 @@
 <h3>月：記録</h3>
+
+<%= flash[:check] %>
+
   <h5>内容</h5>
   
       <%= form_with model: @month_record, url: month_records_path, method: :post do |f| %>
