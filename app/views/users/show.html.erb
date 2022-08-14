@@ -2,7 +2,7 @@
   <%= date.day %><!--.dayを追記することでカレンダー内の日付の年月が非表示になる-->
   <% day_records.each do |day_record| %>
     <% if day_record.day_expenditure_total == 0 %>
-      <%= "★" %>
+      <div>★</div>
     <% else %>
       <div>
         <%= day_record.day_expenditure_total %>
