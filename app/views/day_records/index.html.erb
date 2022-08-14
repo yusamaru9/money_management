@@ -4,6 +4,8 @@
 
   <p><%= link_to day_record.year_month_date.strftime("%m月%d日"), day_record_path(day_record) %></p>
   
+
+  
   <p>食費<%= (day_record.food_cost).to_s(:delimited) %>円</p>
   <p>日用品<%= (day_record.commodity).to_s(:delimited) %>円</p>
   <p>被服<%= (day_record.clothing).to_s(:delimited) %>円</p>

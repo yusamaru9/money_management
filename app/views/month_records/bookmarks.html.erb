@@ -1,0 +1,21 @@
+<h3>ブックマーク一覧</h3>
+<% @bookmarks.each do |bookmark| %>
+  
+  <p><%= link_to bookmark.day_record.year_month_date.strftime("%m月%d日"), day_record_path(bookmark.day_record) %></p>
+  
+
+  
+  <p>食費<%= (bookmark.day_record.food_cost).to_s(:delimited) %>円</p>
+  <p>日用品<%= (bookmark.day_record.commodity).to_s(:delimited) %>円</p>
+  <p>被服<%= (bookmark.day_record.clothing).to_s(:delimited) %>円</p>
+  <p>教育・教養<%= (bookmark.day_record.clothing).to_s(:delimited) %>円</p>
+  <p>医療・美容<%= (bookmark.day_record.medical_beauty).to_s(:delimited) %>円</p>
+  <p>交通<%= (bookmark.day_record.transport).to_s(:delimited) %>円</p>
+  <p>交際<%= (bookmark.day_record.socializing).to_s(:delimited) %>円</p>
+  <p>娯楽<%= (bookmark.day_record.amusement).to_s(:delimited) %>円</p>
+  <p>その他<%= (bookmark.day_record.day_other).to_s(:delimited) %>円</p>
+  
+  <p>合計金額<%= (bookmark.day_record.day_expenditure_total).to_s(:delimited) %>円</p>
+  
+  <p>メモ・日記<%= bookmark.day_record.memo %></p>
+<% end %>

@@ -19,7 +19,11 @@ class DayRecord < ApplicationRecord
     (food_cost + commodity + clothing + educate + medical_beauty + transport + socializing + amusement + day_other)
   end
   
-  def start_time #カレンダー内の日付毎に表示
+  def start_time #カレンダー内の日付毎に表示するため
     self.year_month_date
+  end
+  
+  def bookmarked_by?(user)
+    bookmarks.exists?(user_id: user.id)
   end
 end

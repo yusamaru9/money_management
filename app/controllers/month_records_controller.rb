@@ -29,6 +29,10 @@ class MonthRecordsController < ApplicationController
     redirect_to month_record_path(month_record.id)
   end
   
+  def bookmarks
+    @bookmarks = Bookmark.where(user_id: current_user.id)
+  end
+  
   private
   
   def month_record_params

@@ -1,5 +1,11 @@
 <h3><%= @day_record.year_month_date.strftime("%Y年%m月%d日") %>　支出詳細</h3>
 
+<% if @day_record.bookmarked_by?(current_user) %>
+  <p><%= link_to "ブックマーク外す", day_record_bookmarks_path(@day_record), method: :delete %></p>
+<% else %>
+  <p><%= link_to "ブックマークする", day_record_bookmarks_path(@day_record), method: :post %></p>
+<% end %>
+
 <p>食費<%= (@day_record.food_cost).to_s(:delimited) %>円</p>
 <p>日用品<%= (@day_record.commodity).to_s(:delimited) %>円</p>
 <p>被服<%= (@day_record.clothing).to_s(:delimited) %>円</p>
