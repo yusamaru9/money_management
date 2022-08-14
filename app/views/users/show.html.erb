@@ -1,8 +1,12 @@
 <%= month_calendar events: @day_records do |date, day_records| %>
-  <%= date.day %>
+  <%= date.day %><!--.dayを追記することでカレンダー内の日付の年月が非表示になる-->
   <% day_records.each do |day_record| %>
-  <div>
-    <%= day_record.day_expenditure_total %>
-  </div>
+    <% if day_record.day_expenditure_total == 0 %>
+      <%= "★" %>
+    <% else %>
+      <div>
+        <%= day_record.day_expenditure_total %>
+      </div>
+    <% end %>
   <% end %>
 <% end %>

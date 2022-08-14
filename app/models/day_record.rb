@@ -19,7 +19,7 @@ class DayRecord < ApplicationRecord
     (food_cost + commodity + clothing + educate + medical_beauty + transport + socializing + amusement + day_other)
   end
   
-  def start_time
+  def start_time #カレンダー内の日付毎に表示
     self.year_month_date
   end
 end
