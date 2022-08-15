@@ -1,5 +1,6 @@
 <h3>週間支出一覧</h3>
 
+<% days = ["(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"] %>
 <% @day_records.each do |day_record| %>
 
   <% if day_record.bookmarked_by?(current_user) %>
@@ -7,8 +8,10 @@
   <% else %>
     <p><%= link_to "☆", day_record_bookmarks_path(day_record.id), method: :post %></p>
   <% end %>
+  
+  <p><%= day_record.year_month_date.wday %></p>
 
-  <p><%= link_to day_record.year_month_date.strftime("%m月%d日"), day_record_path(day_record) %></p>
+  <p><%= link_to "#{day_record.year_month_date.strftime("%m月%d日")} #{days[day_record.year_month_date.wday]}", day_record_path(day_record) %></p>
   
 
   
