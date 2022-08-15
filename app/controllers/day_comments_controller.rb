@@ -8,6 +8,11 @@ class DayCommentsController < ApplicationController
     redirect_to day_record_path(day_record)
   end
   
+  def destroy
+    DayComment.find(params[:id]).destroy
+    redirect_to day_record_path(params[:day_record_id])
+  end
+  
   private
   
   def post_comment_params

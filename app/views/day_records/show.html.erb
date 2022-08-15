@@ -26,7 +26,8 @@
 <!--1日の記録にコメント-->
 <div>
   <% @day_record.day_comments.each do |day_comment| %>
-    <p><%= day_comment.created_at.strftime('%Y/%m/%d') %><%= day_comment.comment %></p>
+    <p><%= day_comment.created_at.strftime('%Y/%m/%d') %>のコメント：<%= day_comment.comment %></p>
+    <p><%= link_to "削除", day_record_day_comment_path(day_comment.day_record, day_comment), method: :delete %></p>
   <% end %>
 </div>
 <div>
