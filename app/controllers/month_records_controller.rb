@@ -1,7 +1,7 @@
 class MonthRecordsController < ApplicationController
   
   def index
-    @month_records = current_user.month_records.all #ログインしているユーザーの記録だけが全て表示、アソシエーションでuserとmonth_recordは1対多の関係
+    @month_records = current_user.month_records.all #ログインしている自分の記録だけが全て表示、アソシエーションでuserとmonth_recordは1対多の関係
   end
 
   def new

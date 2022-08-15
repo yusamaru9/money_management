@@ -1,7 +1,7 @@
 class DayRecordsController < ApplicationController
   
   def index
-    @day_records = DayRecord.all
+    @day_records = current_user.day_records.all #ログインしている自分の記録全てが表示
   end
 
   def new
@@ -31,7 +31,7 @@ class DayRecordsController < ApplicationController
 
   def show
     @day_record = DayRecord.find(params[:id])
-    @day_comment = DayComment.new #コメントの空の
+    @day_comment = DayComment.new #コメントの空の箱
   end
 
   def edit

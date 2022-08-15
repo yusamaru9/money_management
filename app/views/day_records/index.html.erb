@@ -2,6 +2,12 @@
 
 <% @day_records.each do |day_record| %>
 
+  <% if day_record.bookmarked_by?(current_user) %>
+    <p><%= link_to "★", day_record_bookmarks_path(day_record.id), method: :delete %></p>
+  <% else %>
+    <p><%= link_to "☆", day_record_bookmarks_path(day_record.id), method: :post %></p>
+  <% end %>
+
   <p><%= link_to day_record.year_month_date.strftime("%m月%d日"), day_record_path(day_record) %></p>
   
 
