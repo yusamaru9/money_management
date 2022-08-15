@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
   resources :day_records, except: [:destroy] do
-    resources :comments, only: [:create, :destroy]
+    resources :day_comments, only: [:create, :destroy]
     resource :bookmarks, only: [:create, :destroy]
   end
 

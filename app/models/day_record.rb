@@ -2,7 +2,7 @@ class DayRecord < ApplicationRecord
   
   belongs_to :user
   
-  has_many :comments, dependent: :destroy
+  has_many :day_comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   
   attribute :food_cost, :integer, default: 0

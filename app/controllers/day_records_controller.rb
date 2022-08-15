@@ -31,6 +31,7 @@ class DayRecordsController < ApplicationController
 
   def show
     @day_record = DayRecord.find(params[:id])
+    @day_comment = DayComment.new #コメントの空の
   end
 
   def edit

@@ -6,7 +6,7 @@ class User < ApplicationRecord
          
   has_many :month_records, dependent: :destroy
   has_many :day_records, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :day_comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   
 end

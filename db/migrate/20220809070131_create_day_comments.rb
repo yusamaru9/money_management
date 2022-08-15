@@ -1,6 +1,6 @@
-class CreateComments < ActiveRecord::Migration[6.1]
+class CreateDayComments < ActiveRecord::Migration[6.1]
   def change
-    create_table :comments do |t|
+    create_table :day_comments do |t|
       
       t.integer :user_id, null: false
       t.integer :day_record_id, null: false

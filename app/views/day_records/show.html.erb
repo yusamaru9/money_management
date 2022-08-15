@@ -22,3 +22,16 @@
 
 <p><%= link_to "編集する", edit_day_record_path %></p>
 
+
+<!--1日の記録にコメント-->
+<div>
+  <% @day_record.day_comments.each do |day_comment| %>
+    <p><%= day_comment.created_at.strftime('%Y/%m/%d') %><%= day_comment.comment %></p>
+  <% end %>
+</div>
+<div>
+  <%= form_with model: [@day_record, @day_comment] do |f| %>
+    <%= f.text_area :comment, rows:'3', placeholder: "コメント欄" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>
