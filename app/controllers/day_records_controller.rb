@@ -1,5 +1,7 @@
 class DayRecordsController < ApplicationController
   
+  before_action :ensure_correct_day_record, only: [:edit, :show, :update]
+  
   def index
     @day_records = current_user.day_records.all #ログインしている自分の記録全てが表示
   end
@@ -48,6 +50,14 @@ class DayRecordsController < ApplicationController
   
   def day_record_params
     params.require(:day_record).permit(:year_month_date, :food_cost, :commodity, :clothing, :educate, :medical_beauty, :transport, :socializing, :amusement, :day_other, :memo)
+  end
+  
+  def ensure_correct_day_record
+    @day_record = DayRecord.find(params[:id])
+    @user = @day_record.user
+    unless @user == current_user
+      redirect_to day_records_path
+    end
   end
   
 end
