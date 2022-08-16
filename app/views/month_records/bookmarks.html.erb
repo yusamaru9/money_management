@@ -3,6 +3,12 @@
 <% days = ["(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"] %>
 <% @bookmarks.each do |bookmark| %>
   
+  <% if bookmark.day_record.bookmarked_by?(current_user) %>
+    <p><%= link_to "★", day_record_bookmarks_path(bookmark.day_record.id), method: :delete %></p>
+  <% else %>
+    <p><%= link_to "☆", day_record_bookmarks_path(bookmark.day_record.id), method: :post %></p>
+  <% end %>
+  
   <p><%= link_to "#{bookmark.day_record.year_month_date.strftime("%m月%d日")} #{days[bookmark.day_record.year_month_date.wday]}", day_record_path(bookmark.day_record) %></p>
   
 

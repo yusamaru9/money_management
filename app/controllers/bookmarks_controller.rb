@@ -16,9 +16,4 @@ class BookmarksController < ApplicationController
     redirect_to request.referer
   end
   
-  private
-  
-  # def ensure_correct_bookmark
-    
-  # end
 end
