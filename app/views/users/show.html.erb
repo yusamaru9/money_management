@@ -1,11 +1,11 @@
 <%= month_calendar events: @day_records do |date, day_records| %>
-  <%= date.day %><!--.dayを追記することでカレンダー内の日付の年月が非表示になる-->
+  <%= link_to date.day, new_day_record_path %><!--.dayを追記することでカレンダー内の日付の年月が非表示になる-->
   <% day_records.each do |day_record| %>
     <% if day_record.day_expenditure_total == 0 %>
       <div>★</div>
     <% else %>
       <div>
-        <%= day_record.day_expenditure_total %>
+        <%= link_to day_record.day_expenditure_total, day_record_path(day_record) %>
       </div>
     <% end %>
   <% end %>
