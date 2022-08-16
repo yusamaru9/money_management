@@ -1,4 +1,6 @@
-<h3><%= @day_record.year_month_date.strftime("%Y年%m月%d日") %>　支出詳細</h3>
+<% days = ["(日)","(月)","(火)","(水)","(木)","(土)","(日)"] %>
+
+<h3><%= "#{@day_record.year_month_date.strftime("%Y年%m月%d日")} #{days[@day_record.year_month_date.wday]}" %>　支出詳細</h3>
 
 <% if @day_record.bookmarked_by?(current_user) %>
   <p><%= link_to "ブックマーク外す", day_record_bookmarks_path(@day_record), method: :delete %></p>

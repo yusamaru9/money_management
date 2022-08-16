@@ -1,7 +1,9 @@
 <h3>ブックマーク一覧</h3>
+
+<% days = ["(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"] %>
 <% @bookmarks.each do |bookmark| %>
   
-  <p><%= link_to bookmark.day_record.year_month_date.strftime("%m月%d日"), day_record_path(bookmark.day_record) %></p>
+  <p><%= link_to "#{bookmark.day_record.year_month_date.strftime("%m月%d日")} #{days[bookmark.day_record.year_month_date.wday]}", day_record_path(bookmark.day_record) %></p>
   
 
   
