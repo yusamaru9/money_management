@@ -1,5 +1,7 @@
 class MonthRecordsController < ApplicationController
   
+  before_action :ensure_correct_month_record, only: [:edit, :show, :update]
+  
   def index
     @month_records = current_user.month_records.all #ログインしている自分の記録だけが全て表示、アソシエーションでuserとmonth_recordは1対多の関係
   end
@@ -51,6 +53,14 @@ class MonthRecordsController < ApplicationController
   
   def month_record_params
     params.require(:month_record).permit(:year_month, :brought_forward, :income, :water_fare, :gas_fare, :electrical_fare, :telephone_fare, :deposit, :insurance, :credit_card, :month_other)
+  end
+  
+  def ensure_correct_month_record
+    @month_record = MonthRecord.find(params[:id])
+    @user = @month_record.user
+    unless @user == current_user
+      redirect_to month_records_path
+    end
   end
   
 end

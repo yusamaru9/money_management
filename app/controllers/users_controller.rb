@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_beginning_of_week
   
   def show
-    @day_records = current_user.day_records.all
+    @day_records = current_user.day_records.all #ログインしているユーザー本人が記録した情報の全て（他のユーザーの記録した情報を表示させない）
   end
   
   
