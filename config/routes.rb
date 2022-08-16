@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   
   devise_for :users
   
-  get 'users/show'
   root to: 'homes#top'
+  resources :users, only: [:show]
   resources :month_records, except: [:destroy] do
     collection do
       get '/bookmarks' => 'month_records#bookmarks'

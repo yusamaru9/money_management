@@ -21,7 +21,7 @@
         <nav>
           <ul>
             <li>
-              <%= link_to "カレンダー", users_show_path %>
+              <%= link_to "カレンダー", user_path(current_user) %>
             </li>
             <li>
               <%= link_to "今月の記録", new_month_record_path %>
