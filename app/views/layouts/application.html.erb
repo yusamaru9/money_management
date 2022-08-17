@@ -1,53 +1,75 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MoneyManagement</title>
+    <title>マネ×マネ</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <script src="https://kit.fontawesome.com/3e77649537.js" crossorigin="anonymous"></script> <!--FontAwesome-->
   </head>
 
   <body>
     
     <header>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        </li>
-        
-        <nav>
-          <ul>
-            <li>
-              <%= link_to "カレンダー", user_path(current_user) %>
+      
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">マネ×マネ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <li class="nav-item active ml-auto">
+                <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-dark' do %>
+                  ログアウト
+                <% end %>
+              </li>
+            <% else %>
+              <li class="nav-item active ml-auto">
+                <%= link_to new_user_registration_path, class: 'nav-link text-dark' do %>
+                  新規登録
+                <% end %>
+              </li>
+              <li class="nav-item active ml-auto">
+                <%= link_to new_user_session_path, class: 'nav-link text-dark' do %>
+                  ログイン
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+      <div class="container">
+        <% if user_signed_in? %>
+          <ul class="navbar-nav list-group list-group-horizontal" >
+            <li class="nav-item list-group-item">
+              <a><i class="fa-regular fa-calendar-days"></i>
+                <%= link_to "カレンダー", user_path(current_user) %>
+              </a>
             </li>
-            <li>
+            <li class="nav-item list-group-item">
               <%= link_to "今月の記録", new_month_record_path %>
             </li>
-            <li>
+            <li class="nav-item list-group-item">
               <%= link_to "今日の記録", new_day_record_path %>
             </li>
-            <li>
+            <li class="nav-item list-group-item">
               <%= link_to "各月収支一覧", month_records_path %>
             </li>
-            <li>
+            <li class="nav-item list-group-item">
               <%= link_to "週間支出一覧", day_records_path %>
             </li>
-            <li>
+            <li class="nav-item list-group-item"><i class="fa-solid fa-bookmark"></i>
               <%= link_to "ブックマーク", bookmarks_month_records_path %>
             </li>
           </ul>
-        </nav>
-      <% else %>
-        <li>
-          <%= link_to "新規登録", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "ログイン", new_user_session_path %>
-        </li>
-      <% end %>
+        <% end %>
+      </div>  
     </header>
     
     <%= yield %>
