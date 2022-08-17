@@ -44,31 +44,34 @@
           </ul>
         </div>
       </nav>
-      <div class="container">
-        <% if user_signed_in? %>
-          <ul class="navbar-nav list-group list-group-horizontal" >
-            <li class="nav-item list-group-item">
-              <a><i class="fa-regular fa-calendar-days"></i>
-                <%= link_to "カレンダー", user_path(current_user) %>
-              </a>
-            </li>
-            <li class="nav-item list-group-item">
-              <%= link_to "今月の記録", new_month_record_path %>
-            </li>
-            <li class="nav-item list-group-item">
-              <%= link_to "今日の記録", new_day_record_path %>
-            </li>
-            <li class="nav-item list-group-item">
-              <%= link_to "各月収支一覧", month_records_path %>
-            </li>
-            <li class="nav-item list-group-item">
-              <%= link_to "週間支出一覧", day_records_path %>
-            </li>
-            <li class="nav-item list-group-item"><i class="fa-solid fa-bookmark"></i>
-              <%= link_to "ブックマーク", bookmarks_month_records_path %>
-            </li>
-          </ul>
-        <% end %>
+      <div class="container mt-3">
+        <div class="row justify-content-center">
+            <% if user_signed_in? %>
+              <ul class="navbar-nav list-group list-group-horizontal">
+                <li class="nav-item list-group-item">
+                  <a><i class="fa-regular fa-calendar-days"></i>
+                    <%= link_to "カレンダー", user_path(current_user) %>
+                  </a>
+                </li>
+                <li class="nav-item list-group-item">
+                  <%= link_to "今月の記録", new_month_record_path %>
+                </li>
+                <li class="nav-item list-group-item">
+                  <%= link_to "今日の記録", new_day_record_path %>
+                </li>
+                <li class="nav-item list-group-item">
+                  <%= link_to "各月収支一覧", month_records_path %>
+                </li>
+                <li class="nav-item list-group-item">
+                  <%= link_to "週間支出一覧", day_records_path %>
+                </li>
+                <li class="nav-item list-group-item"><i class="fa-solid fa-bookmark"></i>
+                  <%= link_to "ブックマーク", bookmarks_month_records_path %>
+                </li>
+              </ul>
+            <% end %>
+          </div>
+        </div>
       </div>  
     </header>
     
