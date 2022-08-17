@@ -13,7 +13,7 @@ class MonthRecordsController < ApplicationController
   def create
     @month_record = MonthRecord.new(month_record_params)
     @month_record.user_id = current_user.id
-    
+
     @month_records = current_user.month_records.all
     check = false
     @month_records.each do |month_record|

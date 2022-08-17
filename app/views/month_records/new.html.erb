@@ -1,37 +1,112 @@
-<h3>月：記録</h3>
-
-<%= flash[:check] %>
-
-  <h5>内容</h5>
-  
-      <%= form_with model: @month_record, url: month_records_path, method: :post do |f| %>
-      
-        <h6>今月の収入</h6>
-          <%= f.date_select :year_month, {:discard_day => true, :use_month_numbers => true } %> <!--オプション：日の選択ボックスを非表示、月を数字で表示-->
-          
-          <label>前月からのくりこし</label>
-            <%= f.number_field :brought_forward %>円
-          <label>収入</label>
-            <%= f.number_field :income %>円
-            
-        <h6>今月の決まっている支出</h6>
-        
-          <label>水道</label>
-            <%= f.number_field :water_fare %>円
-          <label>ガス</label>
-            <%= f.number_field :gas_fare %>円
-          <label>電気</label>
-            <%= f.number_field :electrical_fare %>円
-          <label>電話</label>
-            <%= f.number_field :telephone_fare %>円
-          <label>貯金</label>
-            <%= f.number_field :deposit %>円
-          <label>保険</label>
-            <%= f.number_field :insurance %>円
-          <label>クレジットカード</label>
-            <%= f.number_field :credit_card %>円
-          <label>その他</label>
-            <%= f.number_field :month_other %>円
-            
-          <%= f.submit "記録する" %>
-      <% end %>
+<div class="container my-4">
+  <%= form_with model: @month_record, url: month_records_path, method: :post do |f| %>
+    <div class="row justify-content-center">
+      <h3>
+        <%= f.date_select :year_month, {:discard_day => true, :use_month_numbers => true, :date_separator => "年"} %>月の記録
+      </h3>
+    </div>
+    <%= flash[:check] %>
+    <div class="row">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th style="width: 15%"></th>
+            <th style="width: 20%"></th>
+            <th style="width: 20%">内容</th>
+            <th style="width: 10%"></th>
+            <th style="width: 35%">金額</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <th></th>
+              <th scope="row">収入</th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th></th>
+              <th scope="row"></th>
+              <td>前月からのくりこし</td>
+              <td></td>
+              <td><%= f.number_field :brought_forward %>円</td>
+            </tr>
+            <tr>
+              <th></th>
+              <th scope="row"></th>
+              <td>収入</td>
+              <td></td>
+              <td><%= f.number_field :income %>円</td>
+            </tr>
+            <tr>
+              <th></th>
+              <th scope="row">決まっている支出</th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th></th>
+              <th scope="row"></th>
+              <td>水道</td>
+              <td></td>
+              <td><%= f.number_field :water_fare %>円</td>
+            </tr>
+            <tr>
+              <th></th>
+              <th scope="row"></th>
+              <td>ガス</td>
+              <td></td>
+              <td><%= f.number_field :gas_fare %>円</td>
+            </tr>
+            <tr>
+              <th></th>
+              <th scope="row"></th>
+              <td>電気</td>
+              <td></td>
+              <td><%= f.number_field :electrical_fare %>円</td>
+            </tr>
+            <tr>
+              <th></th>
+              <th scope="row"></th>
+              <td>電話</td>
+              <td></td>
+              <td><%= f.number_field :telephone_fare %>円</td>
+            </tr>
+            <tr>
+              <th></th>
+              <th scope="row"></th>
+              <td>貯金</td>
+              <td></td>
+              <td><%= f.number_field :deposit %>円</td>
+            </tr>
+            <tr>
+              <th></th>
+              <th scope="row"></th>
+              <td>保険</td>
+              <td></td>
+              <td><%= f.number_field :insurance %>円</td>
+            </tr>
+            <tr>
+              <th></th>
+              <th scope="row"></th>
+              <td>クレジットカード</td>
+              <td></td>
+              <td><%= f.number_field :credit_card %>円</td>
+            </tr>
+            <tr>
+              <th></th>
+              <th scope="row"></th>
+              <td>その他</td>
+              <td></td>
+              <td><%= f.number_field :month_other %>円</td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+    <div class="row justify-content-center">
+      <%= f.submit "記録する" %>
+    </div>
+  <% end %>
+</div>
