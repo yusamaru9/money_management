@@ -23,7 +23,7 @@ class DayRecordsController < ApplicationController
     end
     
     if @check #trueなら
-      flash[:check] = "投稿は、一日に一度までです。"
+      flash[:check] = "今日は、既に記録しています。"
       redirect_to new_day_record_path
     else # falseなら
       @day_record.save
