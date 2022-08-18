@@ -1,112 +1,86 @@
 <div class="container my-4">
   <%= form_with model: @month_record, url: month_records_path, method: :post do |f| %>
     <div class="row justify-content-center">
-      <h3>
-        <%= f.date_select :year_month, {:discard_day => true, :use_month_numbers => true, :date_separator => "年"} %>月の記録
-      </h3>
-    </div>
-    <%= flash[:check] %>
-    <div class="row">
-      <table class="table table-borderless">
-        <thead>
-          <tr>
-            <th style="width: 15%"></th>
-            <th style="width: 20%"></th>
-            <th style="width: 20%">内容</th>
-            <th style="width: 10%"></th>
-            <th style="width: 35%">金額</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-              <th></th>
-              <th scope="row">収入</th>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <th></th>
-              <th scope="row"></th>
-              <td>前月からのくりこし</td>
-              <td></td>
-              <td><%= f.number_field :brought_forward %>円</td>
-            </tr>
-            <tr>
-              <th></th>
-              <th scope="row"></th>
-              <td>収入</td>
-              <td></td>
-              <td><%= f.number_field :income %>円</td>
-            </tr>
-            <tr>
-              <th></th>
-              <th scope="row">決まっている支出</th>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <th></th>
-              <th scope="row"></th>
-              <td>水道</td>
-              <td></td>
-              <td><%= f.number_field :water_fare %>円</td>
-            </tr>
-            <tr>
-              <th></th>
-              <th scope="row"></th>
-              <td>ガス</td>
-              <td></td>
-              <td><%= f.number_field :gas_fare %>円</td>
-            </tr>
-            <tr>
-              <th></th>
-              <th scope="row"></th>
-              <td>電気</td>
-              <td></td>
-              <td><%= f.number_field :electrical_fare %>円</td>
-            </tr>
-            <tr>
-              <th></th>
-              <th scope="row"></th>
-              <td>電話</td>
-              <td></td>
-              <td><%= f.number_field :telephone_fare %>円</td>
-            </tr>
-            <tr>
-              <th></th>
-              <th scope="row"></th>
-              <td>貯金</td>
-              <td></td>
-              <td><%= f.number_field :deposit %>円</td>
-            </tr>
-            <tr>
-              <th></th>
-              <th scope="row"></th>
-              <td>保険</td>
-              <td></td>
-              <td><%= f.number_field :insurance %>円</td>
-            </tr>
-            <tr>
-              <th></th>
-              <th scope="row"></th>
-              <td>クレジットカード</td>
-              <td></td>
-              <td><%= f.number_field :credit_card %>円</td>
-            </tr>
-            <tr>
-              <th></th>
-              <th scope="row"></th>
-              <td>その他</td>
-              <td></td>
-              <td><%= f.number_field :month_other %>円</td>
-            </tr>
-          </tbody>
-      </table>
+      <div class="col-md-3 text-center pt-2">
+        <%= flash[:check] %>
+      </div>
+      <div class="col-md-6">
+        <h3>
+          <%= f.date_select :year_month, {:discard_day => true, :use_month_numbers => true, :date_separator => "年"} %>月の記録
+        </h3>
+      </div>
     </div>
     <div class="row justify-content-center">
-      <%= f.submit "記録する" %>
+      <div class="row col-md-10">
+        <div class="col-md-4 mt-4 mb-1"></div>
+        <div class="col-md-3 mt-4 mb-1 font-weight-bold">内容</div>
+        <div class="col-md-3 mt-4 mb-1 pl-0 font-weight-bold text-center">金額</div>
+      </div>
+      <div class="row col-md-10 justify-content-center">
+        <div class="col-md-3 my-1 font-weight-bold">今月の収入</div>
+        <div class="col-md-3 my-1"></div>
+        <div class="col-md-4 my-1"></div>
+      </div>
+      <div class="row col-md-10 justify-content-center">
+        <div class="col-md-3 my-1"></div>
+        <div class="col-md-3 pt-2">前月からのくりこし</div>
+        <div class="col-md-4 my-1"><%= f.number_field :brought_forward %>円</div>
+      </div>
+      <div class="row col-md-10 justify-content-center">
+        <div class="col-md-3 my-1"></div>
+        <div class="col-md-3 pt-2">収入</div>
+        <div class="col-md-4 my-1"><%= f.number_field :income %>円</div>
+      </div>
+      <div class="row col-md-10 justify-content-center">
+        <div class="col-md-3 my-1 font-weight-bold">決まっている支出</div>
+        <div class="col-md-3 my-1"></div>
+        <div class="col-md-4 my-1"></div>
+      </div>
+      <div class="row col-md-10 justify-content-center">
+        <div class="col-md-3 my-1"></div>
+        <div class="col-md-3 pt-2">水道</div>
+        <div class="col-md-4 my-1"><%= f.number_field :water_fare %>円</div>
+      </div>
+      <div class="row col-md-10 justify-content-center">
+        <div class="col-md-3 my-1"></div>
+        <div class="col-md-3 pt-2">ガス</div>
+        <div class="col-md-4 my-1"><%= f.number_field :gas_fare %>円</div>
+      </div>
+      <div class="row col-md-10 justify-content-center">
+        <div class="col-md-3 my-1"></div>
+        <div class="col-md-3 pt-2">電気</div>
+        <div class="col-md-4 my-1"><%= f.number_field :electrical_fare %>円</div>
+      </div>
+      <div class="row col-md-10 justify-content-center">
+        <div class="col-md-3 my-1"></div>
+        <div class="col-md-3 pt-2">電話</div>
+        <div class="col-md-4 my-1"><%= f.number_field :telephone_fare %>円</div>
+      </div>
+      <div class="row col-md-10 justify-content-center">
+        <div class="col-md-3 my-1"></div>
+        <div class="col-md-3 pt-2">貯金</div>
+        <div class="col-md-4 my-1"><%= f.number_field :deposit %>円</div>
+      </div>
+      <div class="row col-md-10 justify-content-center">
+        <div class="col-md-3 my-1"></div>
+        <div class="col-md-3 pt-2">保険</div>
+        <div class="col-md-4 my-1"><%= f.number_field :insurance %>円</div>
+      </div>
+      <div class="row col-md-10 justify-content-center">
+        <div class="col-md-3 my-1"></div>
+        <div class="col-md-3 pt-2">クレジットカード</div>
+        <div class="col-md-4 my-1"><%= f.number_field :credit_card %>円</div>
+      </div>
+      <div class="row col-md-10 justify-content-center">
+        <div class="col-md-3 my-1"></div>
+        <div class="col-md-3 pt-2">その他</div>
+        <div class="col-md-4 my-1"><%= f.number_field :month_other %>円</div>
+      </div>
+      <div class="row col-md-10 justify-content-center">
+        <div class="col-md-1 my-5">
+          <%= f.submit "記録する" %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

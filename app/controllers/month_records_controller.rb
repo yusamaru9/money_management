@@ -23,7 +23,7 @@ class MonthRecordsController < ApplicationController
     end
     
     if check
-      flash[:check] = "記録は、月に一度までです。"
+      flash[:check] = "今月は、既に記録しています。"
       redirect_to new_month_record_path
     else
       @month_record.save
