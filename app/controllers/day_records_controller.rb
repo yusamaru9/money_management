@@ -8,6 +8,9 @@ class DayRecordsController < ApplicationController
 
   def new
     @day_record = DayRecord.new
+    
+    #user/showで記録してない日付を押すとnewページのyear_month_dateのフィールドにその日が入力される
+    @day_record.year_month_date = params[:day] #user/showで使用
   end
   
   def create

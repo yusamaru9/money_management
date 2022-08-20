@@ -1,9 +1,9 @@
 .simple-calendar {
   .day {
-    background: #fff9ee;
+    // background: #fff9ee;
   }
   .wday-0 {
-    background: #ffeaea;
+    background-color: #ffeaea;
   }
   .wday-1 {}
   .wday-2 {}
@@ -11,16 +11,23 @@
   .wday-4 {}
   .wday-5 {}
   .wday-6 {
-    background: #d4ebff;
+    background-color: #d4ebff;
   }
   .today {
-    background: #e8ffd1;
+    background-color: #e8ffd1;
   }
   .past {}
   .future {}
   .start-date {}
-  .prev-month {}
-  .next-month {}
-  .current-month {}
+  .prev-month {
+    background-color: #f2f2f2;
+  }
+  .next-month {
+    background-color: #f2f2f2;
+  }
+  .current-month {
+    height: 100px;
+    width: 130px; // 横幅130にならないのはなぜ？
+  }
   .has-events {}
 }

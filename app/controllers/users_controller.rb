@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   
   def show
     @day_records = current_user.day_records.all #ログインしているユーザー本人が記録した情報の全て（他のユーザーの記録した情報を表示させない）
+    @day_record = DayRecord.find(params[:id])
   end
   
   
