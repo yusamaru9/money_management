@@ -3,15 +3,13 @@ class MonthRecordsController < ApplicationController
   before_action :ensure_correct_month_record, only: [:edit, :show, :update]
   
   def index
-    @month_records = current_user.month_records.all #ログインしている自分の記録だけが全て表示、アソシエーションでuserとmonth_recordは1対多の関係
+    @month_records = current_user.month_records.page(params[:page]) #ログインしている自分の記録だけが全て表示、アソシエーションでuserとmonth_recordは1対多の関係
   end
 
   def new
     @month_record = MonthRecord.new
     
     @month_record.year_month = params[:month]
-    puts "あああああああああああああああああああ"
-    puts @month_record.year_month
   end
   
   def create

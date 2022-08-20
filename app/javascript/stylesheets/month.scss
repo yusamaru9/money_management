@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+  margin-left: 0;
+  justify-content: center;
+}
+.month-box {
+  margin: 0;
+}
+.month-title {
+  width: 100px;
+  height: 45px;
+  border: 1px solid black;
+  margin: 0;
+  font-size:14px;
+}
+.month-index {
+  width: 83px;
+  height: 45px;
+  border: 1px solid black;
+  margin: 0;
+}
