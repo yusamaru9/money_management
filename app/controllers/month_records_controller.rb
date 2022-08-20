@@ -8,6 +8,10 @@ class MonthRecordsController < ApplicationController
 
   def new
     @month_record = MonthRecord.new
+    
+    @month_record.year_month = params[:month]
+    puts "あああああああああああああああああああ"
+    puts @month_record.year_month
   end
   
   def create

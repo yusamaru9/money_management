@@ -3,7 +3,7 @@
     <div class="calendar-heading">
       <h4 class="row mb-3 justify-content-center">
         <%= link_to t('simple_calendar.previous', default: '<<'), calendar.url_for_previous_view %><!--前月を<<で表示した-->
-        <span class="calendar-title"><%= start_date.year %>年<%= link_to t('date.month_names')[start_date.month], new_month_record_path %></span><!--年と月入れ替え-->
+        <span class="calendar-title"><%= start_date.year %>年<%= link_to t('date.month_names')[start_date.month], new_month_record_path(month: start_date) %></span><!--年と月入れ替え-->
         <%= link_to t('simple_calendar.next', default: '>>'), calendar.url_for_next_view %>
       </h4>
     </div>
