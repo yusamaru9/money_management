@@ -1,14 +1,9 @@
 <div class="container my-4">
   <%= form_with model: @month_record, url: month_records_path, method: :post do |f| %>
     <div class="row justify-content-center">
-      <div class="col-md-3 text-center pt-2">
-        <%= flash[:check] %>
-      </div>
-      <div class="col-md-6">
-        <h4>
-          <%= f.date_select :year_month, {:discard_day => true, :use_month_numbers => true, :date_separator => "年"} %>月の記録
-        </h4>
-      </div>
+      <h4>
+        <%= f.date_select :year_month, {:discard_day => true, :use_month_numbers => true, :date_separator => "年"} %>月の記録
+      </h4>
     </div>
     
     <div class="row justify-content-center">
@@ -81,7 +76,11 @@
         <div class="col-md-4 my-1"><%= f.number_field :month_other %>円</div>
       </div>
       
-      <div class="row col-md-10 my-5 justify-content-center">
+      <div class="col-md-3 text-center pt-2">
+        <%= flash[:check] %>
+      </div>
+      
+      <div class="row col-md-10 mt-3 mb-5 justify-content-center">
         <%= f.submit "記録する" %>
       </div>
       
