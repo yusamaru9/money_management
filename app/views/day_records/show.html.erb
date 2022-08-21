@@ -1,39 +1,90 @@
-<% days = ["(日)","(月)","(火)","(水)","(木)","(土)","(日)"] %>
-<h3><%= "#{@day_record.year_month_date.strftime("%Y年%m月%d日")} #{days[@day_record.year_month_date.wday]}" %>　支出詳細</h3>
-
-<% if @day_record.bookmarked_by?(current_user) %>
-  <p><%= link_to "ブックマーク外す", day_record_bookmarks_path(@day_record), method: :delete %></p>
-<% else %>
-  <p><%= link_to "ブックマークする", day_record_bookmarks_path(@day_record), method: :post %></p>
-<% end %>
-
-<p>食費<%= (@day_record.food_cost).to_s(:delimited) %>円</p>
-<p>日用品<%= (@day_record.commodity).to_s(:delimited) %>円</p>
-<p>被服<%= (@day_record.clothing).to_s(:delimited) %>円</p>
-<p>教育・教養<%= (@day_record.educate).to_s(:delimited) %>円</p>
-<p>医療・美容<%= (@day_record.medical_beauty).to_s(:delimited) %>円</p>
-<p>交通<%= (@day_record.transport).to_s(:delimited) %>円</p>
-<p>交際<%= (@day_record.socializing).to_s(:delimited) %>円</p>
-<p>娯楽<%= (@day_record.amusement).to_s(:delimited) %>円</p>
-<p>その他<%= (@day_record.day_other).to_s(:delimited) %>円</p>
-
-<p>合計金額<%= (@day_record.day_expenditure_total).to_s(:delimited) %>円</p>
-
-<p>メモ・日記<%= @day_record.memo %></p>
-
-<p><%= link_to "編集する", edit_day_record_path %></p>
-
-
-<!--1日の記録にコメント-->
-<div>
-  <% @day_record.day_comments.each do |day_comment| %>
-    <p><%= day_comment.created_at.strftime('%Y/%m/%d') %>のコメント：<%= day_comment.comment %></p>
-    <p><%= link_to "削除", day_record_day_comment_path(day_comment.day_record, day_comment), method: :delete %></p>
-  <% end %>
-</div>
-<div>
-  <%= form_with model: [@day_record, @day_comment] do |f| %>
-    <%= f.text_area :comment, rows:'3', placeholder: "コメント欄" %>
-    <%= f.submit "送信する" %>
-  <% end %>
+<div class="container mt-4 mb-5">
+  <div class="row justify-content-center">
+    <% days = ["(日)","(月)","(火)","(水)","(木)","(土)","(日)"] %>
+    <h4><%= "#{@day_record.year_month_date.strftime("%Y年%m月%d日")} #{days[@day_record.year_month_date.wday]}" %>&emsp;支出詳細</h4>
+  </div>
+  
+  <div class="row justify-content-center">
+    
+    <div class="row col-md-4">
+      <div class="col-md-9 my-4 mb-1 pl-0 font-weight-bold">項目</div>
+      <div class="col-md-3 my-4 mb-1 pr-3 font-weight-bold text-right">金額</div>
+    </div>
+    
+    <div class="row col-md-10 justify-content-center">
+      <div class="col-md-3 my-1">食費</div>
+      <div class="col-md-2 my-1 mb-2 text-right"><%= (@day_record.food_cost).to_s(:delimited) %>円</div>
+    </div>
+    <div class="row col-md-10 justify-content-center">
+      <div class="col-md-3 my-1">日用品</div>
+      <div class="col-md-2 my-1 mb-2 text-right"><%= (@day_record.commodity).to_s(:delimited) %>円</div>
+    </div>
+    <div class="row col-md-10 justify-content-center">
+      <div class="col-md-3 my-1">被服</div>
+      <div class="col-md-2 my-1 mb-2 text-right"><%= (@day_record.clothing).to_s(:delimited) %>円</div>
+    </div>
+    <div class="row col-md-10 justify-content-center">
+      <div class="col-md-3 my-1">教育・教養</div>
+      <div class="col-md-2 my-1 mb-2 text-right"><%= (@day_record.educate).to_s(:delimited) %>円</div>
+    </div>
+    <div class="row col-md-10 justify-content-center">
+      <div class="col-md-3 my-1">医療・美容</div>
+      <div class="col-md-2 my-1 mb-2 text-right"><%= (@day_record.medical_beauty).to_s(:delimited) %>円</div>
+    </div>
+    <div class="row col-md-10 justify-content-center">
+      <div class="col-md-3 my-1">交通</div>
+      <div class="col-md-2 my-1 mb-2 text-right"><%= (@day_record.transport).to_s(:delimited) %>円</div>
+    </div>
+    <div class="row col-md-10 justify-content-center">
+      <div class="col-md-3 my-1">交際</div>
+      <div class="col-md-2 my-1 mb-2 text-right"><%= (@day_record.socializing).to_s(:delimited) %>円</div>
+    </div>
+    <div class="row col-md-10 justify-content-center">
+      <div class="col-md-3 my-1">娯楽</div>
+      <div class="col-md-2 my-1 mb-2 text-right"><%= (@day_record.amusement).to_s(:delimited) %>円</div>
+    </div>
+    <div class="row col-md-10 justify-content-center">
+      <div class="col-md-3 my-1">その他</div>
+      <div class="col-md-2 my-1 mb-2 text-right"><%= (@day_record.day_other).to_s(:delimited) %>円</div>
+    </div>
+    
+    <div class="row col-md-10 justify-content-center mb-2">
+      <div class="col-md-3 my-1 font-weight-bold">合計金額</div>
+      <div class="col-md-2 my-1 mb-2 font-weight-bold text-right"><%= (@day_record.day_expenditure_total).to_s(:delimited) %>円</div>
+    </div>
+    
+    <div class="row col-md-10 justify-content-center">
+      <div class="col-md-3 my-1">メモ・日記</div>
+      <div class="col-md-2 my-1 mb-2 text-right"><%= @day_record.memo %></div>
+    </div>
+    
+    <div class="row col-md-10 mt-3 mb-5 justify-content-center">
+      <%= link_to "編集する", edit_day_record_path, class: "btn btn-success" %>
+    </div>
+  </div>
+  
+  <!--1日の記録にコメント-->
+  <div class="row justify-content-center">
+    <% @day_record.day_comments.each do |day_comment| %>
+      <div class="row col-md-10">
+        <div class="col-5 mb-3 offset-3">
+          <%= day_comment.created_at.strftime('%Y年%m月%d日') %>のコメント：<%= day_comment.comment %>
+        </div>
+        <div class="col-1 mb-3 text-center">
+          <%= link_to "削除", day_record_day_comment_path(day_comment.day_record, day_comment), method: :delete, class: "btn btn-danger btn-sm" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+    <%= form_with model: [@day_record, @day_comment] do |f| %>
+      <div class="row justify-content-center">
+        <div class="col-6 text-right">
+          <%= f.text_area :comment, size: "38x3", placeholder: "コメント欄" %>
+        </div>
+        <div class="col-3 pb-2 pl-0 d-flex align-items-end">
+          <%= f.submit "送信する", class: "btn btn-primary btn-sm" %>
+        </div>
+      </div>
+    <% end %>
+  
 </div>
