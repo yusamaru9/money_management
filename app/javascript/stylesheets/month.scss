@@ -4,7 +4,7 @@
 }
 
 .flex {
-  display: flex;
+  display: flex; //flexの1つ下の子要素を横並びにする
   margin-left: 0;
   justify-content: center;
 }
@@ -14,7 +14,8 @@
 .month-title {
   width: 100px;
   height: 45px;
-  border: 1px solid black;
+  border: 1px solid black; //solidは線の種類（実線）
+  border-top: none;
   margin: 0;
   font-size:14px;
 }
@@ -22,5 +23,10 @@
   width: 83px;
   height: 45px;
   border: 1px solid black;
+  border-top: none;
+  border-left: none;
   margin: 0;
+}
+.month-box > div:nth-child(1){
+  border-top: 1px solid black;
 }
