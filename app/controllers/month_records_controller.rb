@@ -48,7 +48,7 @@ class MonthRecordsController < ApplicationController
   end
   
   def bookmarks #bookmarkの中のuserIDカラムがcurrent_userIDを探している
-    @bookmarks = Bookmark.where(user_id: current_user.id) #@bookmarks = current_user.bookmarks.allと同じ意味
+    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(7) #@bookmarks = current_user.bookmarks.allと同じ意味
   end
   
   private
