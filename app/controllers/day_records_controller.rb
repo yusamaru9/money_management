@@ -3,7 +3,7 @@ class DayRecordsController < ApplicationController
   before_action :ensure_correct_day_record, only: [:edit, :show, :update]
   
   def index
-    @day_records = current_user.day_records.all #ログインしている自分の記録全てが表示
+    @day_records = current_user.day_records.page(params[:page]).per(7) #ログインしている自分の記録全てが表示
   end
 
   def new

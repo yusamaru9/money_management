@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.day-box {
+  margin: 0;
+}
+.day-title {
+  width: 110px;
+  height: 45px;
+  border: 1px solid #a0a0a0;
+  border-top: none;
+  margin: 0;
+  padding-top: 2px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  line-height: 45px;
+}
+.day-index {
+  width: 111px;
+  height: 45px;
+  border: 1px solid #a0a0a0;
+  border-top: none;
+  border-left: none;
+  margin: 0;
+  padding-right: 4px;
+  line-height: 45px;
+  display: flex;
+  justify-content: right;
+  font-size: 14px;
+}
+.memo-box {
+  padding:2px;
+  justify-content: center;
+}
+
+.day-box > div:nth-child(1) {
+  border-top: 1px solid #a0a0a0;
+}

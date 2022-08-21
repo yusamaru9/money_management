@@ -1,30 +1,54 @@
-<h3>週間支出一覧</h3>
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <h4>週間支出一覧</h4>
+  </div>
+</div>
 
-<% days = ["(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"] %>
-<% @day_records.each do |day_record| %>
+<div class="flex">
+  <div class="day-box">
+    <div class="day-title">項目・月日</div>
+    <div class="day-title">食費</div>
+    <div class="day-title">日用品</div>
+    <div class="day-title">被服</div>
+    <div class="day-title">教育・教養</div>
+    <div class="day-title">医療・美容</div>
+    <div class="day-title">交通</div>
+    <div class="day-title">交際</div>
+    <div class="day-title">娯楽</div>
+    <div class="day-title">その他</div>
+    <div class="day-title">合計金額</div>
+    <div class="day-title">メモ・日記</div>
+  </div>
 
-  <% if day_record.bookmarked_by?(current_user) %>
-    <p><%= link_to "★", day_record_bookmarks_path(day_record.id), method: :delete %></p>
-  <% else %>
-    <p><%= link_to "☆", day_record_bookmarks_path(day_record.id), method: :post %></p>
+  <% days = ["(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"] %>
+  <% @day_records.each do |day_record| %>
+    <div class="day-box">
+      <div class="day-index">
+        <% if day_record.bookmarked_by?(current_user) %>
+          <%= link_to "★", day_record_bookmarks_path(day_record.id), method: :delete %>
+        <% else %>
+          <%= link_to "☆", day_record_bookmarks_path(day_record.id), method: :post %>
+        <% end %>
+        <%= link_to "#{day_record.year_month_date.strftime("%m月%d日")} #{days[day_record.year_month_date.wday]}", day_record_path(day_record) %>
+      </div>
+      <div class="day-index"><%= (day_record.food_cost).to_s(:delimited) %>円</div>
+      <div class="day-index"><%= (day_record.commodity).to_s(:delimited) %>円</div>
+      <div class="day-index"><%= (day_record.clothing).to_s(:delimited) %>円</div>
+      <div class="day-index"><%= (day_record.clothing).to_s(:delimited) %>円</div>
+      <div class="day-index"><%= (day_record.medical_beauty).to_s(:delimited) %>円</div>
+      <div class="day-index"><%= (day_record.transport).to_s(:delimited) %>円</div>
+      <div class="day-index"><%= (day_record.socializing).to_s(:delimited) %>円</div>
+      <div class="day-index"><%= (day_record.amusement).to_s(:delimited) %>円</div>
+      <div class="day-index"><%= (day_record.day_other).to_s(:delimited) %>円</div>
+      <div class="day-index"><%= (day_record.day_expenditure_total).to_s(:delimited) %>円</div>
+       <!--truncate(day_record.memo, :length => ○で表示文字数指定、文字の後ろの"..."が3文字として含まれ表示される-->
+      <div class="day-index memo-box"><p><%= truncate(day_record.memo, :length => 8) %></p></div>
+    </div>
   <% end %>
+</div>
 
-  <p><%= link_to "#{day_record.year_month_date.strftime("%m月%d日")} #{days[day_record.year_month_date.wday]}", day_record_path(day_record) %></p>
-  
-
-  
-  <p>食費<%= (day_record.food_cost).to_s(:delimited) %>円</p>
-  <p>日用品<%= (day_record.commodity).to_s(:delimited) %>円</p>
-  <p>被服<%= (day_record.clothing).to_s(:delimited) %>円</p>
-  <p>教育・教養<%= (day_record.clothing).to_s(:delimited) %>円</p>
-  <p>医療・美容<%= (day_record.medical_beauty).to_s(:delimited) %>円</p>
-  <p>交通<%= (day_record.transport).to_s(:delimited) %>円</p>
-  <p>交際<%= (day_record.socializing).to_s(:delimited) %>円</p>
-  <p>娯楽<%= (day_record.amusement).to_s(:delimited) %>円</p>
-  <p>その他<%= (day_record.day_other).to_s(:delimited) %>円</p>
-  
-  <p>合計金額<%= (day_record.day_expenditure_total).to_s(:delimited) %>円</p>
-  
-  <p>メモ・日記<%= day_record.memo %></p>
-  
-<% end %>
+<div class="container mt-4 mb-5">
+  <div class="row justify-content-center">
+    <%= paginate @day_records %>
+  </div>
+</div>
