@@ -17,7 +17,10 @@
   border: 1px solid black; //solidは線の種類（実線）
   border-top: none;
   margin: 0;
-  font-size:14px;
+  padding-top: 2px;
+  font-size: 14px;
+  display: flex; //justify-content: center;を使うためにFlexにする
+  justify-content: center; //文字の中央寄せ(Flex)
 }
 .month-index {
   width: 83px;
@@ -26,7 +29,19 @@
   border-top: none;
   border-left: none;
   margin: 0;
+  padding-right: 4px;
+  line-height: 45px;
+  display: flex;
+  justify-content: right;//(Flex)
 }
-.month-box > div:nth-child(1){
+
+//month-boxの中のmonth-titleとmonth-indexのそれぞれ1つのみ指定
+.month-box > div:nth-child(1){ 
   border-top: 1px solid black;
+  justify-content: center;
+  padding: 0;
 }
+.in-box {
+  line-height: 45px; //45pxある高さの内の高さを中央寄せ
+  padding-top: 0;
+  }

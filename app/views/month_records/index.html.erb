@@ -7,20 +7,22 @@
 </div>
   <div class="flex">
     <div class="month-box">
-      <div class="month-title">項目・年月</div>
-      <div class="month-title">前月からのくりこし</div>
-      <div class="month-title">収入</div>
-      <div class="month-title">収入合計</div>
-      <div class="month-title">水道</div>
-      <div class="month-title">ガス</div>
-      <div class="month-title">電気</div>
-      <div class="month-title">電話</div>
-      <div class="month-title">貯金</div>
-      <div class="month-title">保険</div>
-      <div class="month-title">クレジットカード</div>
-      <div class="month-title">その他</div>
-      <div class="month-title">支出合計</div>
-      <div class="month-title">使えるお金</div>
+      <div class="month-title in-box">項目・年月</div>
+      <!--&nbsp;は半角スペースの特殊文字-->
+      <div class="month-title">前月からの<br>&nbsp;くりこし</div>
+      <div class="month-title in-box">収入</div>
+      <div class="month-title in-box">収入合計</div>
+      <div class="month-title in-box">水道</div>
+      <div class="month-title in-box">ガス</div>
+      <div class="month-title in-box">電気</div>
+      <div class="month-title in-box">電話</div>
+      <div class="month-title in-box">貯金</div>
+      <div class="month-title in-box">保険</div>
+      <!--&emsp;は全角スペースの特殊文字-->
+      <div class="month-title">クレジット<br>&emsp;カード</div>
+      <div class="month-title in-box">その他</div>
+      <div class="month-title in-box">支出合計</div>
+      <div class="month-title in-box">使えるお金</div>
     </div>
     <% @month_records.each do |month_record| %>
       <div class="month-box">
