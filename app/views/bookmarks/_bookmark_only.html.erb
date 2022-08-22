@@ -1,0 +1,9 @@
+<% if bookmark.day_record.bookmarked_by?(current_user) %>
+  <%= link_to day_record_bookmarks_path(bookmark.day_record.id), method: :delete, remote: true do %>
+    ★
+  <% end %>
+<% else %>
+  <%= link_to day_record_bookmarks_path(bookmark.day_record.id), method: :post, remote: true do %>
+    ☆
+  <% end %>
+<% end %>

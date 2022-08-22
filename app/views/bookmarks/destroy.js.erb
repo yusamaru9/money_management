@@ -1,2 +1,3 @@
 $('.bookmarks_buttons').html("<%= j(render 'bookmarks/bookmark_show', day_record: @day_record) %>");
 $('#index_bookmark_btn_<%= @day_record.id %>').html("<%= j(render 'bookmarks/bookmark_index', day_record: @day_record) %>");
+$('#bookmark_only_btn_<%= @bookmark.day_record.id %>').html("<%= j(render 'bookmarks/bookmark_only', bookmark: @bookmark) %>");

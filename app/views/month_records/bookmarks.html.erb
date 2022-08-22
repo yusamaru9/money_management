@@ -24,11 +24,9 @@
   <% @bookmarks.each do |bookmark| %>
     <div class="day-box">
       <div class="day-index">
-        <% if bookmark.day_record.bookmarked_by?(current_user) %>
-          <%= link_to "★", day_record_bookmarks_path(bookmark.day_record.id), method: :delete %>
-        <% else %>
-          <%= link_to "☆", day_record_bookmarks_path(bookmark.day_record.id), method: :post %>
-        <% end %>
+        <div id="bookmark_only_btn_<%= bookmark.day_record.id %>">
+          <%= render 'bookmarks/bookmark_only',bookmark: bookmark %>
+        </div>
         <%= link_to "#{bookmark.day_record.year_month_date.strftime("%m月%d日")} #{days[bookmark.day_record.year_month_date.wday]}", day_record_path(bookmark.day_record) %>
       </div>
       <div class="day-index"><%= (bookmark.day_record.food_cost).to_s(:delimited) %>円</div>
