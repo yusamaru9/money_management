@@ -24,7 +24,9 @@
   <% @day_records.each do |day_record| %>
     <div class="day-box">
       <div class="day-index">
-        <%= render 'bookmarks/bookmark_index', day_record: day_record %>
+        <div id="index_bookmark_btn_<%= day_record.id %>">
+          <%= render 'bookmarks/bookmark_index', day_record: day_record %>
+        </div>
         <%= link_to "#{day_record.year_month_date.strftime("%m月%d日")} #{days[day_record.year_month_date.wday]}", day_record_path(day_record) %>
       </div>
       <div class="day-index"><%= (day_record.food_cost).to_s(:delimited) %>円</div>
