@@ -1,11 +1,9 @@
-<h4 class="bookmarks_buttons">
-  <% if day_record.bookmarked_by?(current_user) %>
-    <%= link_to day_record_bookmarks_path(day_record.id), method: :delete, remote: true do %>
-      ★
-    <% end %>
-  <% else %>
-    <%= link_to day_record_bookmarks_path(day_record.id), method: :post, remote: true do %>
-      ☆
-    <% end %>
+<% if day_record.bookmarked_by?(current_user) %>
+  <%= link_to day_record_bookmarks_path(day_record.id), method: :delete, remote: true do %>
+    ★
   <% end %>
-</h4>
+<% else %>
+  <%= link_to day_record_bookmarks_path(day_record.id), method: :post, remote: true do %>
+    ☆
+  <% end %>
+<% end %>

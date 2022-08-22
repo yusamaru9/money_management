@@ -1,7 +1,9 @@
 <div class="container mt-4 mb-5">
   <div class="row justify-content-center">
     <% days = ["(日)","(月)","(火)","(水)","(木)","(土)","(日)"] %>
-      <%= render 'bookmarks/bookmark_show', day_record: @day_record %>
+      <h4 class="bookmarks_buttons">
+        <%= render 'bookmarks/bookmark_show', day_record: @day_record %>
+      </h4>
     <h4>
       <%= "#{@day_record.year_month_date.strftime("%Y年%m月%d日")} #{days[@day_record.year_month_date.wday]}" %>&emsp;支出詳細
     </h4>
