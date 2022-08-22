@@ -1,0 +1,7 @@
+<p class="bookmarks_index_btn">
+  <% if day_record.bookmarked_by?(current_user) %>
+    <%= link_to "★", day_record_bookmarks_path(day_record.id), method: :delete %>
+  <% else %>
+    <%= link_to "☆", day_record_bookmarks_path(day_record.id), method: :post %>
+  <% end %>
+</p>

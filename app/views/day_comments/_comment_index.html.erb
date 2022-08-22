@@ -1,0 +1,12 @@
+<div class="row justify-content-center">
+  <% day_record.day_comments.each do |day_comment| %>
+    <div class="row col-md-10">
+      <div class="col-5 mb-3 offset-3">
+        <%= day_comment.created_at.strftime('%Y年%m月%d日') %>のコメント：<%= day_comment.comment %>
+      </div>
+      <div class="col-1 mb-3 text-center">
+        <%= link_to "削除", day_record_day_comment_path(day_comment.day_record, day_comment), method: :delete, remote: true, class: "btn btn-danger btn-sm" %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,7 +1,7 @@
 <div class="container mt-4 mb-5">
   <div class="row justify-content-center">
     <% days = ["(日)","(月)","(火)","(水)","(木)","(土)","(日)"] %>
-      <%= render 'bookmarks/bookmark', day_record: @day_record %>
+      <%= render 'bookmarks/bookmark_show', day_record: @day_record %>
     <h4>
       <%= "#{@day_record.year_month_date.strftime("%Y年%m月%d日")} #{days[@day_record.year_month_date.wday]}" %>&emsp;支出詳細
     </h4>
@@ -66,28 +66,10 @@
     </div>
   </div>
   
-  <!--1日の記録にコメント-->
-  <div class="row justify-content-center">
-    <% @day_record.day_comments.each do |day_comment| %>
-      <div class="row col-md-10">
-        <div class="col-5 mb-3 offset-3">
-          <%= day_comment.created_at.strftime('%Y年%m月%d日') %>のコメント：<%= day_comment.comment %>
-        </div>
-        <div class="col-1 mb-3 text-center">
-          <%= link_to "削除", day_record_day_comment_path(day_comment.day_record, day_comment), method: :delete, class: "btn btn-danger btn-sm" %>
-        </div>
-      </div>
-    <% end %>
+  <div class="comment_index">
+    <%= render 'day_comments/comment_index', day_record: @day_record %>
   </div>
-    <%= form_with model: [@day_record, @day_comment] do |f| %>
-      <div class="row justify-content-center">
-        <div class="col-6 text-right">
-          <%= f.text_area :comment, size: "38x3", placeholder: "コメント欄" %>
-        </div>
-        <div class="col-3 pb-2 pl-0 d-flex align-items-end">
-          <%= f.submit "送信する", class: "btn btn-primary btn-sm" %>
-        </div>
-      </div>
-    <% end %>
-  
+  <!--textareaはもともt非同期通信なのでclassを作らなくていい-->
+  <!--jsファイルでの記述はtextarea内を空白にする記述のみでいい-->
+  <%= render 'day_comments/comment_form', day_record: @day_record, day_comment: @day_comment %>
 </div>
