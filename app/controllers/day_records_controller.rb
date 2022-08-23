@@ -30,7 +30,7 @@ class DayRecordsController < ApplicationController
       redirect_to new_day_record_path
     else # falseなら
       @day_record.save
-      redirect_to day_record_path(@day_record)
+      redirect_to day_record_path(@day_record), notice: "記録が保存されました。"
     end
   end
 
