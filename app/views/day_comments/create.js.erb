@@ -1,5 +1,2 @@
 $('.comment_index').html("<%= j(render 'day_comments/comment_index', day_record: @day_record) %>");
 $('textarea').val('');
-<!--textareaとは,railsで<%#= f.text_area %>と記述した時、-->
-<!--HTMLの表記が<textarea></textarea>(ディベロッパーツールで文字入力欄)になる-->
-<!--コメントは1行ごとに区切らないと非同期にならないことがある-->
