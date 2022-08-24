@@ -1,66 +1,84 @@
-<% if @params == "food_cost" %>
-  食費
-<% elsif @params == "commodity" %>
-  日用品
-<% elsif @params == "clothing" %>
-  被服
-<% elsif @params == "educate" %>
-  教育・教養
-<% elsif @params == "medical_beauty" %>
-  医療・美容
-<% elsif @params == "transport" %>
-  交通
-<% elsif @params == "socializing" %>
-  交際
-<% elsif @params == "amusement" %>
-  娯楽
-<% elsif @params == "day_other" %>
-  その他
-<% end %>
-に使ったお金の一覧
-
-<% if @user_day_records.present? %>
-
-  <% if @day_records.present? %>
-    
-    <% @day_records.each do |item| %>
-      <%= item.year_month_date.strftime("%Y年%m月%d日") %>
-      
-      <% if @params == "food_cost" %><!--食費-->
-        <%= item.food_cost %>
-        
-      <% elsif @params == "commodity" %><!--日用品-->
-        <%= item.commodity %>
-      
-      <% elsif @params == "clothing" %><!--被服-->
-        <%= item.clothing %>
-        
-      <% elsif @params == "educate" %><!--教育・教養-->
-        <%= item.educate %>
-      
-      <% elsif @params == "medical_beauty" %><!--医療・美容-->
-         <%= item.medical_beauty %>
-      
-      <% elsif @params == "transport" %><!--交通-->
-        <%= item.transport %>
-      
-      <% elsif @params == "socializing" %><!--交際-->
-        <%= item.socializing %>
-        
-      <% elsif @params == "amusement" %><!--娯楽-->
-        <%= item.amusement %>
-      
-      <% elsif @params == "day_other" %><!--日その他-->
-        <%= item.day_other %>
-        
+<div class="container mt-4 mb-5">
+  <div class="row justify-content-center">
+    <h4>
+      <% if @params == "food_cost" %>
+        食費
+      <% elsif @params == "commodity" %>
+        日用品
+      <% elsif @params == "clothing" %>
+        被服
+      <% elsif @params == "educate" %>
+        教育・教養
+      <% elsif @params == "medical_beauty" %>
+        医療・美容
+      <% elsif @params == "transport" %>
+        交通
+      <% elsif @params == "socializing" %>
+        交際
+      <% elsif @params == "amusement" %>
+        娯楽
+      <% elsif @params == "day_other" %>
+        その他
       <% end %>
-      
-    <% end %>
-  
-  <% else %>
-    記録したデータが全て0円です
-  <% end %>
+      に使ったお金
+    </h4>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-3 mt-4 mb-1 font-weight-bold text-center">日付</div>
+    <div class="col-md-3 mt-4 mb-1 font-weight-bold text-center">金額</div>
+  </div>
 
-<% else %>
-  記録がありません
-<% end %>
+
+    <% days = ["(日)","(月)","(火)","(水)","(木)","(土)","(日)"] %>
+    <% if @user_day_records.present? %>
+
+      <% if @day_records.present? %>
+        
+        <% @day_records.each do |item| %>
+        <div class="row">
+          <div class="col-md-3 mt-2 text-center offset-3">
+            <%= "#{item.year_month_date.strftime("%Y年%m月%d日")} #{days[item.year_month_date.wday]}" %>
+          </div>
+          <div class="col-md-2 mt-2 text-right">
+            <% if @params == "food_cost" %><!--食費-->
+              <%= item.food_cost %>円
+              
+            <% elsif @params == "commodity" %><!--日用品-->
+              <%= item.commodity %>円
+            
+            <% elsif @params == "clothing" %><!--被服-->
+              <%= item.clothing %>円
+              
+            <% elsif @params == "educate" %><!--教育・教養-->
+              <%= item.educate %>円
+            
+            <% elsif @params == "medical_beauty" %><!--医療・美容-->
+               <%= item.medical_beauty %>円
+            
+            <% elsif @params == "transport" %><!--交通-->
+              <%= item.transport %>円
+            
+            <% elsif @params == "socializing" %><!--交際-->
+              <%= item.socializing %>円
+              
+            <% elsif @params == "amusement" %><!--娯楽-->
+              <%= item.amusement %>円
+            
+            <% elsif @params == "day_other" %><!--日その他-->
+              <%= item.day_other %>円
+            
+            <% end %>
+          </div>
+        </div>
+          
+        <% end %>
+      
+      <% else %>
+        記録したデータが全て0円です
+      <% end %>
+    
+    <% else %>
+      記録がありません
+    <% end %>
+
+</div>
