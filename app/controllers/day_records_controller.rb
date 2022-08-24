@@ -49,6 +49,14 @@ class DayRecordsController < ApplicationController
     redirect_to day_record_path(day_record.id)
   end
   
+  def genres
+    @model = params[:col]
+    if @model == "food_cost"
+      @food_name = params[:food_id]
+      @day_genres = DayRecord.search_for(@model, @food_name)
+    end
+  end
+  
   private
   
   def day_record_params

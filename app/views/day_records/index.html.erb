@@ -7,7 +7,9 @@
 <div class="flex">
   <div class="day-box">
     <div class="day-title">項目・月日</div>
-    <div class="day-title">食費</div>
+    <div class="day-title">
+      <%= link_to "食費", genres_path(food_id: DayRecord.food_cost, model: "food_cost") %>
+    </div>
     <div class="day-title">日用品</div>
     <div class="day-title">被服</div>
     <div class="day-title">教育・教養</div>

@@ -54,13 +54,13 @@
     </div>
     
     <div class="row col-md-10 justify-content-center mb-2">
-      <div class="col-md-3 my-1 font-weight-bold">合計金額</div>
-      <div class="col-md-2 my-1 mb-2 font-weight-bold text-right"><%= (@day_record.day_expenditure_total).to_s(:delimited) %>円</div>
+      <div class="col-md-3 my-2 font-weight-bold">合計金額</div>
+      <div class="col-md-2 my-2 mb-2 font-weight-bold text-right"><%= (@day_record.day_expenditure_total).to_s(:delimited) %>円</div>
     </div>
     
     <div class="row col-md-10 justify-content-center">
       <div class="col-md-3 my-1">メモ・日記</div>
-      <div class="col-md-2 my-1 mb-2 text-right"><%= @day_record.memo %></div>
+      <div class="col-md-2 mt-1 mb-2 p-0"><%= @day_record.memo %></div>
     </div>
     
     <div class="row col-md-10 mt-3 mb-5 justify-content-center">
