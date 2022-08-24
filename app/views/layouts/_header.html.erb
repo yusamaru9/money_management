@@ -10,18 +10,18 @@
         <% if user_signed_in? %>
           <li class="nav-item active ml-auto">
             <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-dark' do %>
-              ログアウト
+              <i class="fas fa-sign-out-alt"></i>ログアウト
             <% end %>
           </li>
         <% else %>
           <li class="nav-item active ml-auto">
             <%= link_to new_user_registration_path, class: 'nav-link text-dark' do %>
-              新規登録
+              <i class="fas fa-user-plus"></i>新規登録
             <% end %>
           </li>
           <li class="nav-item active ml-auto">
             <%= link_to new_user_session_path, class: 'nav-link text-dark' do %>
-              ログイン
+              <i class="fas fa-sign-in-alt"></i>ログイン
             <% end %>
           </li>
         <% end %>
@@ -33,24 +33,34 @@
         <% if user_signed_in? %>
           <ul class="navbar-nav list-group list-group-horizontal">
             <li class="nav-item list-group-item">
-              <a><i class="fa-regular fa-calendar-days"></i>
-                <%= link_to "カレンダー", user_path(current_user) %>
-              </a>
+              <%= link_to user_path(current_user) do %>
+                <i class="fa-regular fa-calendar-days"></i> カレンダー
+              <% end %>
             </li>
             <li class="nav-item list-group-item">
-              <%= link_to "今月の記録", new_month_record_path %>
+              <%= link_to new_month_record_path do %>
+                <i class="fas fa-moon"></i> 今月の記録
+              <% end %>
             </li>
             <li class="nav-item list-group-item">
-              <%= link_to "今日の記録", new_day_record_path %>
+              <%= link_to new_day_record_path do %>
+                <i class="fas fa-pencil-alt"></i> 今日の記録
+              <% end %>
             </li>
             <li class="nav-item list-group-item">
-              <%= link_to "各月収支一覧", month_records_path %>
+              <%= link_to month_records_path do %>
+                <i class="fas fa-table"></i> 各月収支一覧
+              <% end %>
             </li>
             <li class="nav-item list-group-item">
-              <%= link_to "週間支出一覧", day_records_path %>
+              <%= link_to day_records_path do %>
+                <i class="fas fa-calendar-week"></i> 週間支出一覧
+              <% end %>
             </li>
-            <li class="nav-item list-group-item"><i class="fa-solid fa-bookmark"></i>
-              <%= link_to "ブックマーク", bookmarks_month_records_path %>
+            <li class="nav-item list-group-item">
+              <%= link_to bookmarks_month_records_path do %>
+                <i class="fa-solid fa-bookmark"></i> ブックマーク
+              <% end %>
             </li>
           </ul>
         <% end %>
