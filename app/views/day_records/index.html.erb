@@ -8,16 +8,32 @@
   <div class="day-box">
     <div class="day-title">項目・月日</div>
     <div class="day-title">
-      <%= link_to "食費", genres_path(food_id: DayRecord.food_cost, model: "food_cost") %>
+      <%= link_to "食費", day_genres_path(item: "food_cost") %>
     </div>
-    <div class="day-title">日用品</div>
-    <div class="day-title">被服</div>
-    <div class="day-title">教育・教養</div>
-    <div class="day-title">医療・美容</div>
-    <div class="day-title">交通</div>
-    <div class="day-title">交際</div>
-    <div class="day-title">娯楽</div>
-    <div class="day-title">その他</div>
+    <div class="day-title">
+      <%= link_to "日用品", day_genres_path(item: "commodity") %>
+    </div>
+    <div class="day-title">
+      <%= link_to "被服", day_genres_path(item: "clothing") %>
+    </div>
+    <div class="day-title">
+      <%= link_to "教育・教養", day_genres_path(item: "educate") %>
+    </div>
+    <div class="day-title">
+      <%= link_to "医療・美容", day_genres_path(item: "medical_beauty") %>
+    </div>
+    <div class="day-title">
+      <%= link_to "交通", day_genres_path(item: "transport") %>
+    </div>
+    <div class="day-title">
+      <%= link_to "交際", day_genres_path(item: "socializing") %>
+    </div>
+    <div class="day-title">
+      <%= link_to "娯楽", day_genres_path(item: "amusement") %>
+    </div>
+    <div class="day-title">
+      <%= link_to "その他", day_genres_path(item: "day_other") %>
+    </div>
     <div class="day-title">合計金額</div>
     <div class="day-title">メモ・日記</div>
   </div>
@@ -34,7 +50,7 @@
       <div class="day-index"><%= (day_record.food_cost).to_s(:delimited) %>円</div>
       <div class="day-index"><%= (day_record.commodity).to_s(:delimited) %>円</div>
       <div class="day-index"><%= (day_record.clothing).to_s(:delimited) %>円</div>
-      <div class="day-index"><%= (day_record.clothing).to_s(:delimited) %>円</div>
+      <div class="day-index"><%= (day_record.educate).to_s(:delimited) %>円</div>
       <div class="day-index"><%= (day_record.medical_beauty).to_s(:delimited) %>円</div>
       <div class="day-index"><%= (day_record.transport).to_s(:delimited) %>円</div>
       <div class="day-index"><%= (day_record.socializing).to_s(:delimited) %>円</div>

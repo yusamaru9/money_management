@@ -26,10 +26,5 @@ class DayRecord < ApplicationRecord
   def bookmarked_by?(user)
     bookmarks.exists?(user_id: user.id)
   end
-  
-  def self.search_for(model, ward)
-    if model == "food_cost"
-      @day_record = DayRecord.where(food_id: ward)
-    end
-  end
+
 end

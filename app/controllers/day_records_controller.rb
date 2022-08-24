@@ -49,12 +49,39 @@ class DayRecordsController < ApplicationController
     redirect_to day_record_path(day_record.id)
   end
   
-  def genres
-    @model = params[:col]
-    if @model == "food_cost"
-      @food_name = params[:food_id]
-      @day_genres = DayRecord.search_for(@model, @food_name)
+  def day_genres
+    @params = params[:item]
+    #各項目（カラム）が0円で保存しているかどうか
+    if @params == "food_cost" #食費
+      @day_records = current_user.day_records.where.not(food_cost: 0)
+      
+    elsif @params == "commodity" #日用品
+      @day_records = current_user.day_records.where.not(commodity: 0)
+      
+    elsif @params == "clothing" #被服
+      @day_records = current_user.day_records.where.not(clothing: 0)
+      
+    elsif @params == "educate" #教育・教養
+      @day_records = current_user.day_records.where.not(educate: 0)
+      
+    elsif @params == "medical_beauty" #医療・美容
+      @day_records = current_user.day_records.where.not(medical_beauty: 0)
+      
+    elsif @params == "transport" #交通
+      @day_records = current_user.day_records.where.not(transport: 0)
+      
+    elsif @params == "socializing" #交際
+      @day_records = current_user.day_records.where.not(socializing: 0)
+      
+    elsif @params == "amusement" #娯楽
+      @day_records = current_user.day_records.where.not(amusement: 0)
+      
+    elsif @params == "day_other" #日その他
+      @day_records = current_user.day_records.where.not(day_other: 0)
     end
+    
+    #カレントユーザーのday_record全てにしないと他のユーザーのデータが反映されてしまうので
+    @user_day_records = current_user.day_records.all
   end
   
   private

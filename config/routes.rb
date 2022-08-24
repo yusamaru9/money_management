@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get '/bookmarks' => 'month_records#bookmarks'
     end
   end
-  get '/genres' => 'day_records#genres'
+  get '/day_genres' => 'day_records#day_genres'
   resources :day_records, except: [:destroy] do
     resources :day_comments, only: [:create, :destroy]
     resource :bookmarks, only: [:create, :destroy]
