@@ -6,7 +6,7 @@
   <% end %>
   <% day_records.each do |day_record| %>
     <% if day_record.day_expenditure_total == 0 %>
-      <h3 class="text-center"><i class="fa-solid fa-award"></i></h3>
+      <h2 class="text-center"><i class="fas fa-piggy-bank"></i></h2>
     <% else %>
       <div>
         <%= link_to day_record.day_expenditure_total, day_record_path(day_record) %>
