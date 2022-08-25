@@ -9,11 +9,11 @@
         <%= render "devise/shared/error_messages", resource: resource %>
           <div class="field pt-1 pb-3">
             <%= f.label :name %><br>
-            <%= f.text_field :name, size: '34' %>
+            <%= f.text_field :name, autofocus: true, size: '34' %><!--autofocus:trueで入力位置が選択される-->
           </div>
           <div class="field pt-1 pb-3">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", size: '34' %>
+            <%= f.email_field :email, autocomplete: "email", size: '34' %>
           </div>
           <div class="field pt-1 pb-3">
             <%= f.label :password %>
