@@ -30,7 +30,7 @@ class MonthRecordsController < ApplicationController
     else
       if @month_record.save
         redirect_to month_record_path(@month_record)
-      else
+      else #バリデーション
         render :new
       end
     end

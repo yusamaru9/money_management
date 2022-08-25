@@ -29,8 +29,11 @@ class DayRecordsController < ApplicationController
       flash[:check] = "今日は、既に記録しています。"
       redirect_to new_day_record_path
     else # falseなら
-      @day_record.save
-      redirect_to day_record_path(@day_record), notice: "記録が保存されました。"
+      if @day_record.save
+        redirect_to day_record_path(@day_record), notice: "記録が保存されました。"
+      else #バリデーション
+        render :new
+      end
     end
   end
 
