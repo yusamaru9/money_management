@@ -1,8 +1,18 @@
 <div class="container my-4">
   <%= form_with model: @day_record, url: day_records_path, method: :post do |f| %>
     <div class="row justify-content-center">
+      <!--rawと6行目赤い=は同じ意味、sprintfはRubyの関数-->
       <h4>
-        <%= f.date_select :year_month_date, { :use_month_numbers => true, } %> の支出記録
+        <%==
+          sprintf(
+            f.date_select(
+              :year_month_date, {
+                use_month_numbers: true,
+                date_separator: '%s'}
+            ),
+            '年 ', '月 '
+          ) + '日'
+        %> の支出記録
       </h4>
     </div>
     
