@@ -1,4 +1,4 @@
-<div class="container mt-4 mb-5">
+<div class="container mt-4 mb-5 genres">
   <div class="row justify-content-center">
     <h4>
       <% if @params == "food_cost" %>
@@ -23,17 +23,17 @@
       に使ったお金
     </h4>
   </div>
-  <div class="row justify-content-center">
-    <div class="col-md-3 mt-4 mb-1 font-weight-bold text-center">日付</div>
-    <div class="col-md-3 mt-4 mb-1 font-weight-bold text-center">金額</div>
-  </div>
-
-
+    
+    <!--40行目で使用-->
     <% days = ["(日)","(月)","(火)","(水)","(木)","(土)","(日)"] %>
+    
     <% if @user_day_records.present? %>
 
       <% if @day_records.present? %>
-        
+        <div class="row justify-content-center">
+          <div class="col-md-3 mt-4 mb-1 font-weight-bold text-center">日付</div>
+          <div class="col-md-3 mt-4 mb-1 font-weight-bold text-center">金額</div>
+        </div>
         <% @day_records.each do |item| %>
         <div class="row">
           <div class="col-md-3 mt-2 text-center offset-3">
@@ -74,11 +74,20 @@
         <% end %>
       
       <% else %>
-        記録したデータが全て0円です
+        <div class="row justify-content-center">
+          <div class="col-4 mt-3 text-center">
+            <h5>この項目の記録は全て0円です<i class="fas fa-sign-language"></i></h5>
+          </div>
+        </div>
       <% end %>
     
     <% else %>
-      記録がありません
+      <div class="row justify-content-center">
+        <div class="col-4 mt-3 text-center">
+          <h5>記録がありません
+          <i class="fas fa-pencil-alt"></i>今日の記録から記録してみましょう！</h5>
+        </div>
+      </div>
     <% end %>
 
 </div>
