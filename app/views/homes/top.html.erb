@@ -1,19 +1,27 @@
-<div class="container my-4">
+<div class="container my-4 height">
   <div class="row justify-content-center">
-    <div class="col-3">
-      <%= link_to users_guest_sign_in_path, class: "btn btn-secondary btn-sm px-4", method: :post do %>
-      ゲストログインする
-      <% end %>
-    </div>
-    <div class="col-3">
-      <%= link_to new_user_registration_path, class: "btn btn-success btn-sm px-5" do %>
-        新規登録する
-      <% end %>
-    </div>
-    <div class="col-3">
-      <%= link_to new_user_session_path, class: "btn btn-info btn-sm px-5" do %>
-        ログインする
-      <% end %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="col-3">
+        <%= link_to destroy_user_session_path, method: :delete, class: "btn btn-info btn-sm px-5" do %>
+          ログアウトする
+        <% end %>
+      </div>
+    <% else %>
+      <div class="col-3">
+        <%= link_to users_guest_sign_in_path, class: "btn btn-secondary btn-sm px-4", method: :post do %>
+        ゲストログインする
+        <% end %>
+      </div>
+      <div class="col-3">
+        <%= link_to new_user_registration_path, class: "btn btn-success btn-sm px-5" do %>
+          新規登録する
+        <% end %>
+      </div>
+      <div class="col-3">
+        <%= link_to new_user_session_path, class: "btn btn-info btn-sm px-5" do %>
+          ログインする
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
