@@ -39,3 +39,30 @@
 .day-box > div:nth-child(1) {
   border-top: 1px solid #a0a0a0;
 }
+
+//日の支出とブックマークのindexの表内の左上（項目・月日）
+.oblique-line { 
+  position: relative; //親要素につける
+}
+.oblique-line div { 
+  transform: rotate(22deg);
+  position: absolute; //子要素につける
+  top: 21px;
+  z-index: 1; //親と子の奥行きをz-indexでつける
+  width: 118px;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #a0a0a0;
+  margin: 0;
+  padding: 0;
+}
+.title-item {
+  position: absolute;
+  top: 7px;
+  left: 8px;
+}
+.title-day {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+}
