@@ -1,4 +1,15 @@
 <div class="container my-4">
+  <% if @month_record.errors.any? %>
+    <div class="row justify-content-center">
+      <h5 class="font-weight-bold"><%= @month_record.errors.count %>件のエラーが発生しました</h5>
+    </div>
+      <ul>
+        <% @month_record.errors.full_messages.each do |message| %>
+          <li class="col-md-3 m-center pl-0 text-left offset-5"><%= message %></li>
+        <% end %>
+      </ul>
+  <% end %>
+
   <%= form_with model: @month_record, url: month_records_path, method: :post do |f| %>
     <div class="row justify-content-center">
       <h4>

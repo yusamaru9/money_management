@@ -28,8 +28,11 @@ class MonthRecordsController < ApplicationController
       flash[:check] = "今月は、既に記録しています。"
       redirect_to new_month_record_path
     else
-      @month_record.save
-      redirect_to month_record_path(@month_record)
+      if @month_record.save
+        redirect_to month_record_path(@month_record)
+      else
+        render :new
+      end
     end
   end
 
