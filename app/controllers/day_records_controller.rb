@@ -56,31 +56,31 @@ class DayRecordsController < ApplicationController
     @params = params[:item]
     #各項目（カラム）が0円で保存しているかどうか
     if @params == "food_cost" #食費
-      @day_records = current_user.day_records.where.not(food_cost: 0)
+      @day_records = current_user.day_records.where.not(food_cost: 0).page(params[:page]).per(14)
       
     elsif @params == "commodity" #日用品
-      @day_records = current_user.day_records.where.not(commodity: 0)
+      @day_records = current_user.day_records.where.not(commodity: 0).page(params[:page]).per(14)
       
     elsif @params == "clothing" #被服
-      @day_records = current_user.day_records.where.not(clothing: 0)
+      @day_records = current_user.day_records.where.not(clothing: 0).page(params[:page]).per(14)
       
     elsif @params == "educate" #教育・教養
-      @day_records = current_user.day_records.where.not(educate: 0)
+      @day_records = current_user.day_records.where.not(educate: 0).page(params[:page]).per(14)
       
     elsif @params == "medical_beauty" #医療・美容
-      @day_records = current_user.day_records.where.not(medical_beauty: 0)
+      @day_records = current_user.day_records.where.not(medical_beauty: 0).page(params[:page]).per(14)
       
     elsif @params == "transport" #交通
-      @day_records = current_user.day_records.where.not(transport: 0)
+      @day_records = current_user.day_records.where.not(transport: 0).page(params[:page]).per(14)
       
     elsif @params == "socializing" #交際
-      @day_records = current_user.day_records.where.not(socializing: 0)
+      @day_records = current_user.day_records.where.not(socializing: 0).page(params[:page]).per(14)
       
     elsif @params == "amusement" #娯楽
-      @day_records = current_user.day_records.where.not(amusement: 0)
+      @day_records = current_user.day_records.where.not(amusement: 0).page(params[:page]).per(14)
       
     elsif @params == "day_other" #日その他
-      @day_records = current_user.day_records.where.not(day_other: 0)
+      @day_records = current_user.day_records.where.not(day_other: 0).page(params[:page]).per(14)
     end
     
     #カレントユーザーのday_record全てにしないと他のユーザーのデータが反映されてしまうので

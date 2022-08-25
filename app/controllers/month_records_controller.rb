@@ -3,7 +3,7 @@ class MonthRecordsController < ApplicationController
   before_action :ensure_correct_month_record, only: [:edit, :show, :update]
   
   def index
-    @month_records = current_user.month_records.page(params[:page]) #ログインしている自分の記録だけが全て表示、アソシエーションでuserとmonth_recordは1対多の関係
+    @month_records = current_user.month_records.page(params[:page]).per(13) #ログインしている自分の記録だけが全て表示、アソシエーションでuserとmonth_recordは1対多の関係
   end
 
   def new
