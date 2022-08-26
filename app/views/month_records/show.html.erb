@@ -1,10 +1,15 @@
-<div class="container my-4">
+<div class="container my-2">
+  
   <div class="row mb-3 justify-content-center">
     <p class="save-background-color"><%= flash[:save] %></p>
     <p class="update-background-color"><%= flash[:update] %></p>
   </div>
+  
   <div class="row justify-content-center">
-    <h4><%= @month_record.year_month.strftime("%Y年%m月") %>　収入・決まっている支出詳細</h4>
+    <h4>
+      <i class="fas fa-moon"></i>&nbsp;
+      <%= @month_record.year_month.strftime("%Y年%m月") %>　収入・決まっている支出詳細
+    </h4>
   </div>
   
   <div class="row justify-content-center">
@@ -35,6 +40,7 @@
       <div class="col-md-3 my-1 font-weight-bold">収入合計</div>
       <div class="col-md-2 my-1 mb-2 font-weight-bold text-right"><%= (@month_record.income_total).to_s(:delimited) %>円</div>
     </div>
+    
     <div class="row col-md-10 justify-content-center">
       <div class="col-md-3 my-1 font-weight-bold">今月の決まっている支出</div>
       <div class="col-md-3 my-1"></div>
@@ -80,11 +86,13 @@
       <div class="col-md-3 my-1">その他</div>
       <div class="col-md-2 my-1 mb-2 text-right"><%= (@month_record.month_other).to_s(:delimited) %>円</div>
     </div>
+    
     <div class="row col-md-10 justify-content-center mb-2">
       <div class="col-md-3 my-1"></div>
       <div class="col-md-3 my-1 font-weight-bold">支出合計</div>
       <div class="col-md-2 my-1 mb-2 font-weight-bold text-right"><%= (@month_record.expenditure_total).to_s(:delimited) %>円</div>
     </div>
+    
     <div class="row col-md-10 justify-content-center">
       <div class="col-md-3 pt-3 total-border"></div>
       <div class="col-md-3 pt-3 font-weight-bold total-border">今月の使えるお金</div>
@@ -96,4 +104,3 @@
     </div>
   </div>
 </div>
-  
