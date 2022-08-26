@@ -58,7 +58,7 @@
       <div class="day-index"><%= (day_record.day_other).to_s(:delimited) %>円</div>
       <div class="day-index"><%= (day_record.day_expenditure_total).to_s(:delimited) %>円</div>
        <!--truncate(day_record.memo, :length => ○で表示文字数指定、文字の後ろの"..."が3文字として含まれ表示される-->
-      <div class="day-index memo-box"><p><%= truncate(day_record.memo, :length => 8) %></p></div>
+      <div class="day-index memo-box"><p><%= truncate(day_record.memo, :length => 7) %></p></div>
     </div>
   <% end %>
 </div>

@@ -2,8 +2,9 @@ class MonthRecordsController < ApplicationController
   
   before_action :ensure_correct_month_record, only: [:edit, :show, :update]
   
+  #ログインしている自分の記録だけが全て表示、アソシエーションでuserとmonth_recordは1対多の関係
   def index
-    @month_records = current_user.month_records.page(params[:page]).per(13) #ログインしている自分の記録だけが全て表示、アソシエーションでuserとmonth_recordは1対多の関係
+    @month_records = current_user.month_records.page(params[:page]).per(13).order(year_month: :desc)
   end
 
   def new
@@ -50,8 +51,10 @@ class MonthRecordsController < ApplicationController
     redirect_to month_record_path(month_record.id)
   end
   
-  def bookmarks #bookmarkの中のuserIDカラムがcurrent_userIDを探している
-    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(7) #@bookmarks = current_user.bookmarks.allと同じ意味
+  #@bookmarks = current_user.bookmarks.allと同じ意味
+  #bookmarkの中のuserIDカラムがcurrent_userIDを探している
+  def bookmarks
+    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(7).order(year_month_date: :desc)
   end
   
   private

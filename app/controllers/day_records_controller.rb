@@ -2,8 +2,8 @@ class DayRecordsController < ApplicationController
   
   before_action :ensure_correct_day_record, only: [:edit, :show, :update]
   
-  def index
-    @day_records = current_user.day_records.page(params[:page]).per(7) #ログインしている自分の記録全てが表示
+  def index #ログインしている自分の記録全てが表示、投稿順ではなく日付が新しい順に変更
+    @day_records = current_user.day_records.page(params[:page]).per(7).order(year_month_date: :desc)
   end
 
   def new
