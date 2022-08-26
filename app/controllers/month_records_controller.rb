@@ -30,6 +30,7 @@ class MonthRecordsController < ApplicationController
       redirect_to new_month_record_path
     else
       if @month_record.save
+        flash[:save] = "記録が保存されました。"
         redirect_to month_record_path(@month_record)
       else #バリデーション
         render :new
@@ -43,12 +44,20 @@ class MonthRecordsController < ApplicationController
 
   def edit
     @month_record = MonthRecord.find(params[:id])
+    if @month_record.user != current_user
+      flash[:fraud] = "不正なアクセスです。"
+      redirect_to month_records_path
+    end
   end
   
   def update
     month_record = MonthRecord.find(params[:id])
-    month_record.update(month_record_params)
-    redirect_to month_record_path(month_record.id)
+    if month_record.update(month_record_params)
+      flash[:update] = "変更が成功しました。"
+      redirect_to month_record_path(month_record.id)
+    else
+      render :edit
+    end
   end
   
   #@bookmarks = current_user.bookmarks.allと同じ意味

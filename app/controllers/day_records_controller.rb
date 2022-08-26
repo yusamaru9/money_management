@@ -30,7 +30,8 @@ class DayRecordsController < ApplicationController
       redirect_to new_day_record_path
     else # falseなら
       if @day_record.save
-        redirect_to day_record_path(@day_record), notice: "記録が保存されました。"
+        flash[:save] = "記録が保存されました。"
+        redirect_to day_record_path(@day_record)
       else #バリデーション
         render :new
       end
@@ -44,12 +45,20 @@ class DayRecordsController < ApplicationController
 
   def edit
     @day_record = DayRecord.find(params[:id])
+    if @day_record.user != current_user
+      flash[:fraud] = "不正なアクセスです。"
+      redirect_to day_records_path
+    end
   end
   
   def update
     day_record = DayRecord.find(params[:id])
-    day_record.update(day_record_params)
-    redirect_to day_record_path(day_record.id)
+    if day_record.update(day_record_params)
+      flash[:update] = "変更が成功しました。"
+      redirect_to day_record_path(day_record.id)
+    else
+      render :edit
+    end
   end
   
   def day_genres
