@@ -16,12 +16,21 @@
 .height {
   height: 60vh;
 }
-
 .signup-height {
   height: 70vh;
 }
 .signin-height {
   height: 70vh;
+}
+
+.main-image {
+  height: 940px;
+  background-repeat: none;
+}
+.topimage {
+  transform: rotate(-90deg);
+  margin-top: -130px;
+  margin-right: 60px;
 }
 
 //記録フラッシュメッセージ
@@ -34,4 +43,3 @@
 .fraud-background-color {
   background: radial-gradient(#d44, #fff);
 }
-
