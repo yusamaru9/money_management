@@ -49,7 +49,7 @@ class MonthRecordsController < ApplicationController
   def update
     month_record = MonthRecord.find(params[:id])
     if month_record.update(month_record_params)
-      flash[:update] = "変更が成功しました。"
+      flash[:update] = "記録が変更できました。"
       redirect_to month_record_path(month_record.id)
     else
       render :edit

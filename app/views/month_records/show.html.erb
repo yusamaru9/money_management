@@ -1,7 +1,7 @@
 <div class="container my-4">
   <div class="row mb-3 justify-content-center">
-    <%= flash[:save] %>
-    <%= flash[:update] %>
+    <p class="save-background-color"><%= flash[:save] %></p>
+    <p class="update-background-color"><%= flash[:update] %></p>
   </div>
   <div class="row justify-content-center">
     <h4><%= @month_record.year_month.strftime("%Y年%m月") %>　収入・決まっている支出詳細</h4>

@@ -50,7 +50,7 @@ class DayRecordsController < ApplicationController
   def update
     day_record = DayRecord.find(params[:id])
     if day_record.update(day_record_params)
-      flash[:update] = "変更が成功しました。"
+      flash[:update] = "記録が変更できました。"
       redirect_to day_record_path(day_record.id)
     else
       render :edit

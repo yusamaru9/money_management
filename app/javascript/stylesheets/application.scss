@@ -23,3 +23,19 @@
 .signin-height {
   height: 70vh;
 }
+
+//記録フラッシュメッセージ
+.save-background-color {
+  background: radial-gradient(#f90, #fff)
+}
+.update-background-color {
+  background: radial-gradient(#4d0, #fff);
+}
+.fraud-background-color {
+  background: radial-gradient(#d44, #fff);
+}
+
+//ブックマーク
+.fas {
+  text-decoration: none;
+}
