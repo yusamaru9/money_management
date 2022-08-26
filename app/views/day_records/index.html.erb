@@ -1,7 +1,9 @@
 <div class="container my-4">
-  <div class="row justify-content-center">
+  
+  <div class="row mb-3 justify-content-center">
     <%= flash[:fraud] %>
   </div>
+  
   <div class="row justify-content-center">
     <h4>週間支出一覧</h4>
   </div>
@@ -9,7 +11,12 @@
 
 <div class="flex">
   <div class="day-box">
-    <div class="day-title oblique-line"><div></div><p class="title-item m-0">項目</p><p class="title-day m-0">月日</p></div>
+    <div class="day-title oblique-line">
+      
+      <div></div>
+      <p class="title-item m-0">項目</p>
+      <p class="title-day m-0">月日</p></div>
+      
     <div class="day-title">
       <%= link_to "食費", day_genres_path(item: "food_cost") %>
     </div>

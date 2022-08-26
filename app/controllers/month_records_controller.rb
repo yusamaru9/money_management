@@ -44,10 +44,6 @@ class MonthRecordsController < ApplicationController
 
   def edit
     @month_record = MonthRecord.find(params[:id])
-    if @month_record.user != current_user
-      flash[:fraud] = "不正なアクセスです。"
-      redirect_to month_records_path
-    end
   end
   
   def update
@@ -76,6 +72,7 @@ class MonthRecordsController < ApplicationController
     @month_record = MonthRecord.find(params[:id])
     @user = @month_record.user
     unless @user == current_user
+      flash[:fraud] = "不正なアクセスです。"
       redirect_to month_records_path
     end
   end

@@ -45,10 +45,6 @@ class DayRecordsController < ApplicationController
 
   def edit
     @day_record = DayRecord.find(params[:id])
-    if @day_record.user != current_user
-      flash[:fraud] = "不正なアクセスです。"
-      redirect_to day_records_path
-    end
   end
   
   def update
@@ -106,6 +102,7 @@ class DayRecordsController < ApplicationController
     @day_record = DayRecord.find(params[:id])
     @user = @day_record.user
     unless @user == current_user
+      flash[:fraud] = "不正なアクセスです。"
       redirect_to day_records_path
     end
   end
