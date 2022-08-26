@@ -1,5 +1,30 @@
 ja:
   activerecord:
+    models:
+      month_record: "月の記録"
+      day_record: "日の記録"
+    attributes:
+      month_record:
+        brought_forward: "前月からのくりこし"
+        income: "収入"
+        water_fare: "水道"
+        gas_fare: "ガス"
+        electrical_fare: "電気"
+        telephone_fare: "電話"
+        deposit: "貯金"
+        insurance: "保険"
+        credit_card: "クレジットカード"
+        month_other: "その他"
+      day_record:
+        food_cost: "食費"
+        commodity: "日用品"
+        clothing: "被服"
+        educate: "教育・教養"
+        medical_beauty: "医療・美容" 
+        transport: "交通"
+        socializing: "交際"
+        amusement: "娯楽"
+        day_other: "その他"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
