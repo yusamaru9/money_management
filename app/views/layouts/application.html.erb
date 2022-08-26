@@ -13,8 +13,14 @@
   </head>
 
   <body>
-    <%= render "layouts/header" %>
-    <%= yield %>
-    <%= render "layouts/footer" %>
+    <div class="footerFixed">
+      <%= render "layouts/header" %>
+      <main>
+        <%= yield %>
+      </main>
+      <footer>
+        <%= render "layouts/footer" %>
+      </footer>
+    </div>
   </body>
 </html>

@@ -13,23 +13,22 @@
 }
 
 //topページ・項目毎のページ
-.height {
-  height: 60vh;
-}
-.signup-height {
-  height: 70vh;
-}
-.signin-height {
-  height: 70vh;
-}
+// .height {
+//   height: 60vh;
+// }
+// .signup-height {
+//   height: 72vh;
+// }
+// .signin-height {
+//   height: 72vh;
+// }
 
 .main-image {
   height: 940px;
   background-repeat: none;
 }
 .topimage {
-  transform: rotate(-90deg);
-  margin-top: -130px;
+  margin-top: -10px;
   margin-right: 60px;
 }
 
@@ -42,4 +41,17 @@
 }
 .fraud-background-color {
   background: radial-gradient(#d44, #fff);
+}
+
+//
+.footerFixed {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
