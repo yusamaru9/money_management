@@ -15,12 +15,8 @@
   <body>
     <div class="footerFixed">
       <%= render "layouts/header" %>
-      <main>
-        <%= yield %>
-      </main>
-      <footer>
-        <%= render "layouts/footer" %>
-      </footer>
+      <%= yield %>
+      <%= render "layouts/footer" %>
     </div>
   </body>
 </html>
