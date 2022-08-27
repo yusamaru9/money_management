@@ -1,30 +1,36 @@
 <div class="container mt-4 mb-5">
-  <div class="row justify-content-center">
-    <h4>
-      <% if @params == "food_cost" %>
-        食費
-      <% elsif @params == "commodity" %>
-        日用品
-      <% elsif @params == "clothing" %>
-        被服
-      <% elsif @params == "educate" %>
-        教育・教養
-      <% elsif @params == "medical_beauty" %>
-        医療・美容
-      <% elsif @params == "transport" %>
-        交通
-      <% elsif @params == "socializing" %>
-        交際
-      <% elsif @params == "amusement" %>
-        娯楽
-      <% elsif @params == "day_other" %>
-        その他
-      <% end %>
-      に使ったお金
-    </h4>
-  </div>
+  
+    <%= form_with  url: day_genres_path, method: :get do |f| %>
+      <div class="row justify-content-center">
+        <h4>
+          <% if @params == "food_cost" %>
+            食費
+          <% elsif @params == "commodity" %>
+            日用品
+          <% elsif @params == "clothing" %>
+            被服
+          <% elsif @params == "educate" %>
+            教育・教養
+          <% elsif @params == "medical_beauty" %>
+            医療・美容
+          <% elsif @params == "transport" %>
+            交通
+          <% elsif @params == "socializing" %>
+            交際
+          <% elsif @params == "amusement" %>
+            娯楽
+          <% elsif @params == "day_other" %>
+            その他
+          <% end %>
+
+          <%= f.date_select :year_month_date, {:discard_day => true, :use_month_numbers => true, :date_separator => "年", selected: Date.new(@year, @month) } %>月の記録
+        </h4>
+        <%= f.hidden_field :item, value: @params %>
+        <p>　<%= f.submit "検索する", class: "btn btn-success btn-sm" %></p>
+      </div>
+    <% end %>
     
-    <!--40行目で使用-->
+    <!--each文の中の日付から曜日を表示で使用-->
     <% days = ["(日)","(月)","(火)","(水)","(木)","(土)","(日)"] %>
     
     <% if @user_day_records.present? %>
@@ -89,7 +95,4 @@
         </div>
       </div>
     <% end %>
-</div>
-<div class="row justify-content-center">
-  <%= paginate @day_records %>
 </div>

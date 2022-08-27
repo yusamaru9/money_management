@@ -17,7 +17,8 @@ class DayRecordsController < ApplicationController
     @day_record = DayRecord.new(day_record_params)
     @day_record.user_id = current_user.id
     
-    @day_records = current_user.day_records.all #自分の記録の全て
+    @day_records = current_user.day_records #自分の記録の全て
+    
     @check = false
     @day_records.each do |day_record| #自分の記録の全てを一つずつ取り出して同じ日付かどうか処理する
       if day_record.year_month_date == @day_record.year_month_date
@@ -58,34 +59,55 @@ class DayRecordsController < ApplicationController
   end
   
   def day_genres
+    #@paramsに各カラム（item）を入れる
     @params = params[:item]
+    
+    #フィールドで送られた値を整数型へ変更し、定義する
+    @year = params["year_month_date(1i)"].to_i
+    @month = params["year_month_date(2i)"].to_i
+      
+    #@yearにはデフォルトで0が入ってしまっているので、@yearが0以外(一度day_genresのviewを表示した後検索した時)
+    if @year != 0
+      beginning = Date.new(@year, @month).beginning_of_month
+      last = Date.new(@year, @month).end_of_month
+    #項目のリンクをクリックして初めてday_genresのviewに飛んだ時
+    else
+      @year = Date.today.year
+      @month = Date.today.month
+      #beginning_of_monthは、月初
+      beginning = Date.today.beginning_of_month
+      #end_of_monthは、月末
+      last = Date.today.end_of_month
+    end
+    
     #各項目（カラム）が0円で保存しているかどうか
+    #その項目の月初から月末までの0円以外のデータを1日→末日の順に並べる
     if @params == "food_cost" #食費
-      @day_records = current_user.day_records.where.not(food_cost: 0).page(params[:page]).per(14)
+      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(food_cost: 0).order(year_month_date: :asc)
       
     elsif @params == "commodity" #日用品
-      @day_records = current_user.day_records.where.not(commodity: 0).page(params[:page]).per(14)
+      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(commodity: 0).order(year_month_date: :asc)
       
     elsif @params == "clothing" #被服
-      @day_records = current_user.day_records.where.not(clothing: 0).page(params[:page]).per(14)
+      @day_records = current_user.day_records.where.not(clothing: 0)
       
     elsif @params == "educate" #教育・教養
-      @day_records = current_user.day_records.where.not(educate: 0).page(params[:page]).per(14)
+      @day_records = current_user.day_records.where.not(educate: 0)
       
     elsif @params == "medical_beauty" #医療・美容
-      @day_records = current_user.day_records.where.not(medical_beauty: 0).page(params[:page]).per(14)
+      @day_records = current_user.day_records.where.not(medical_beauty: 0)
       
     elsif @params == "transport" #交通
-      @day_records = current_user.day_records.where.not(transport: 0).page(params[:page]).per(14)
+      @day_records = current_user.day_records.where.not(transport: 0)
       
     elsif @params == "socializing" #交際
-      @day_records = current_user.day_records.where.not(socializing: 0).page(params[:page]).per(14)
+      @day_records = current_user.day_records.where.not(socializing: 0)
       
     elsif @params == "amusement" #娯楽
-      @day_records = current_user.day_records.where.not(amusement: 0).page(params[:page]).per(14)
+      @day_records = current_user.day_records.where.not(amusement: 0)
       
     elsif @params == "day_other" #日その他
-      @day_records = current_user.day_records.where.not(day_other: 0).page(params[:page]).per(14)
+      @day_records = current_user.day_records.where.not(day_other: 0)
     end
     
     #カレントユーザーのday_record全てにしないと他のユーザーのデータが反映されてしまうので
