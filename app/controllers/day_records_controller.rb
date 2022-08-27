@@ -58,6 +58,7 @@ class DayRecordsController < ApplicationController
     end
   end
   
+  
   def day_genres
     #@paramsに各カラム（item）を入れる
     @params = params[:item]
@@ -113,6 +114,8 @@ class DayRecordsController < ApplicationController
     #カレントユーザーのday_record全てにしないと他のユーザーのデータが反映されてしまうので
     @user_day_records = current_user.day_records.all
   end
+  
+  
   
   private
   
