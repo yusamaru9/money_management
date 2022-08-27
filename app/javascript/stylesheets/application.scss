@@ -22,7 +22,7 @@
   margin-right: 60px;
 }
 
-//記録フラッシュメッセージ
+//月・日それぞれの記録フラッシュメッセージ
 .save-background-color {
   background: radial-gradient(#f90, #fff)
 }
@@ -33,14 +33,22 @@
   background: radial-gradient(#d44, #fff);
 }
 
-//
+//フッター
+ //bodyタグの直下にクラスを作る
+ //100vhは画面全体で高さを指定
 .footerFixed {
+  //最低100vh
   min-height: 100vh;
+  //フッターの位置を決める、子要素のposition: absoluteを使用するため
   position: relative;
+  //mainとフッターが重ならないようにフッターの高さ
   padding-bottom: 100px;
+  //親要素の箱の中に子要素の箱全体が収まるようにする
   box-sizing: border-box;
 }
 footer {
+  //親要素のposition: relativeを基準にしてposition: absoluteをどの位置にするか
+  //top/bottom/right/left、横幅を100%(画面いっぱいに表示)で指定する
   position: absolute;
   bottom: 0;
   width: 100%;
