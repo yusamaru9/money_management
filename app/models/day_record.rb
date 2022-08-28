@@ -15,15 +15,17 @@ class DayRecord < ApplicationRecord
   attribute :amusement, :integer, default: 0
   attribute :day_other, :integer, default: 0
   
-  validates :food_cost, presence: true
-  validates :commodity, presence: true
-  validates :clothing, presence: true
-  validates :educate, presence: true
-  validates :medical_beauty, presence: true
-  validates :transport, presence: true
-  validates :socializing, presence: true
-  validates :amusement, presence: true
-  validates :day_other, presence: true
+  with_options presence: true do
+    validates :food_cost
+    validates :commodity
+    validates :clothing
+    validates :educate
+    validates :medical_beauty
+    validates :transport
+    validates :socializing
+    validates :amusement
+    validates :day_other
+  end
 
   #1日の支出合計
   def day_expenditure_total

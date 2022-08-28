@@ -13,16 +13,18 @@ class MonthRecord < ApplicationRecord
   attribute :credit_card, :integer, default: 0
   attribute :month_other, :integer, default: 0
   
-  validates :brought_forward, presence: true
-  validates :income, presence: true
-  validates :water_fare, presence: true
-  validates :gas_fare, presence: true
-  validates :electrical_fare, presence: true
-  validates :telephone_fare, presence: true
-  validates :deposit, presence: true
-  validates :insurance, presence: true
-  validates :credit_card, presence: true
-  validates :month_other, presence: true
+  with_options presence: true do
+    validates :brought_forward
+    validates :income
+    validates :water_fare
+    validates :gas_fare
+    validates :electrical_fare
+    validates :telephone_fare
+    validates :deposit
+    validates :insurance
+    validates :credit_card
+    validates :month_other
+  end
   
   #収入合計
   def income_total
