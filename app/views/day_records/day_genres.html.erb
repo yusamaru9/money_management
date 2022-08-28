@@ -4,23 +4,23 @@
       <div class="row justify-content-center">
         <h4>
           <% if @params == "food_cost" %>
-            食費
+            <i class="fas fa-hamburger"></i>&ensp;食費&ensp;
           <% elsif @params == "commodity" %>
-            日用品
+            <i class="fas fa-shopping-cart"></i>&ensp;日用品&ensp;
           <% elsif @params == "clothing" %>
-            被服
+            <i class="fas fa-tshirt"></i>&ensp;被服&ensp;
           <% elsif @params == "educate" %>
-            教育・教養
+            <i class="fas fa-book-open"></i>&ensp;教育・教養&ensp;
           <% elsif @params == "medical_beauty" %>
-            医療・美容
+            <i class="fas fa-heart"></i>&ensp;医療・美容&ensp;
           <% elsif @params == "transport" %>
-            交通
+            <i class="fas fa-bus-alt"></i>&ensp;交通&ensp;
           <% elsif @params == "socializing" %>
-            交際
+            <i class="fas fa-gift"></i>&ensp;交際&ensp;
           <% elsif @params == "amusement" %>
-            娯楽
+            <i class="fa-solid fa-icons"></i>&ensp;娯楽&ensp;
           <% elsif @params == "day_other" %>
-            その他
+            <i class="fas fa-smile"></i>&ensp;その他&ensp;
           <% end %>
 
           <%= f.date_select :year_month_date, {:discard_day => true, :use_month_numbers => true, :date_separator => "年", selected: Date.new(@year, @month) } %>月の記録
