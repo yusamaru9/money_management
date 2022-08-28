@@ -17,7 +17,7 @@
       <!--&nbsp;は半角スペースの特殊文字-->
       <div class="month-title">前月からの<br>&nbsp;くりこし</div>
       <div class="month-title in-box">収入</div>
-      <div class="month-title in-box">収入合計</div>
+      <div class="month-title in-box font-weight-bold income-total">収入合計</div>
       <div class="month-title in-box">水道</div>
       <div class="month-title in-box">ガス</div>
       <div class="month-title in-box">電気</div>
@@ -27,15 +27,15 @@
       <!--&emsp;は全角スペースの特殊文字-->
       <div class="month-title">クレジット<br>&emsp;カード</div>
       <div class="month-title in-box">その他</div>
-      <div class="month-title in-box">支出合計</div>
-      <div class="month-title in-box">使えるお金</div>
+      <div class="month-title in-box font-weight-bold expenditure-total">支出合計</div>
+      <div class="month-title in-box font-weight-bold freedom-money">使えるお金</div>
     </div>
     <% @month_records.each do |month_record| %>
       <div class="month-box">
         <div class="month-index"><%= link_to month_record.year_month.strftime("%Y/%m"), month_record_path(month_record) %></div>
         <div class="month-index"><%= (month_record.brought_forward).to_s(:delimited) %></div>
         <div class="month-index"><%= (month_record.income).to_s(:delimited) %></div>
-        <div class="month-index"><%= (month_record.income_total).to_s(:delimited) %></div>
+        <div class="month-index income-total"><%= (month_record.income_total).to_s(:delimited) %></div>
         <div class="month-index"><%= (month_record.water_fare).to_s(:delimited) %></div>
         <div class="month-index"><%= (month_record.gas_fare).to_s(:delimited) %></div>
         <div class="month-index"><%= (month_record.electrical_fare).to_s(:delimited) %></div>
@@ -44,8 +44,8 @@
         <div class="month-index"><%= (month_record.insurance).to_s(:delimited) %></div>
         <div class="month-index"><%= (month_record.credit_card).to_s(:delimited) %></div>
         <div class="month-index"><%= (month_record.month_other).to_s(:delimited) %></div>
-        <div class="month-index"><%= (month_record.expenditure_total).to_s(:delimited) %></div>
-        <div class="month-index"><%= (month_record.freedom_money).to_s(:delimited) %></div>
+        <div class="month-index expenditure-total"><%= (month_record.expenditure_total).to_s(:delimited) %></div>
+        <div class="month-index freedom-money"><%= (month_record.freedom_money).to_s(:delimited) %></div>
       </div>  
     <% end %>
   </div>

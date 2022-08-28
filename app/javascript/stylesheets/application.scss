@@ -2,10 +2,14 @@
 
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-@import 'header';
 @import 'simplecalendar';
 @import 'month';
 @import 'day';
+
+//headerとfooterの背景色
+.hf-bg-color {
+  background-color: #cceebb;
+}
 
 //month_recordとday_recordの詳細ページ
 .total-border {
@@ -52,4 +56,15 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+//月・日・ブックマークの一覧ページ
+.income-total {
+  background-color: #ffeecc;
+}
+.expenditure-total {
+  background-color: #ddeeff;
+}
+.freedom-money {
+  background-color: #cceedd;
 }

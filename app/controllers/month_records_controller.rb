@@ -59,6 +59,7 @@ class MonthRecordsController < ApplicationController
   #@bookmarks = current_user.bookmarks.allと同じ意味
   #bookmarkの中のuserIDカラムがcurrent_userIDを探している
   #日付が新しい順に並べる
+  #day_recordテーブルのyear_month_dateカラムを使用するのでjoinsを使ってテーブルを指定(ソートする)
   def bookmarks
     @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(7).joins(:day_record).order("day_records.year_month_date desc")
   end
