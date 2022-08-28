@@ -60,7 +60,7 @@ class MonthRecordsController < ApplicationController
   #bookmarkの中のuserIDカラムがcurrent_userIDを探している
   #日付が新しい順に並べる
   def bookmarks
-    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(7).joins(:day_record).order(year_month_date: :desc)
+    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(7).joins(:day_record).order("day_records.year_month_date desc")
   end
   
   private
