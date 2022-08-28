@@ -38,6 +38,14 @@
 ### ER図
 ![マネ×マネ ER図-Page-1 drawio](https://user-images.githubusercontent.com/106299497/187067024-a22a19d3-f352-49b5-8d89-e0f08fd10aac.png)
 
+###テーブル定義書
+https://docs.google.com/spreadsheets/d/10ZyH_v6W5-k6v4WTLDdvXd61J2N8U4wkgz1ggBnHZAM/edit?usp=sharing
+
+###詳細設計書
+https://docs.google.com/spreadsheets/d/11YTFdkkzxxeIlV2EnRBJOyb64CpqnNyPS1o48qCyqY4/edit?usp=sharing
+
+###ワイヤーフレーム
+
 
 ## 開発環境
 - OS：Linux(CentOS)
