@@ -1,7 +1,8 @@
 # マネ×マネ
 <img width="210" alt="スクリーンショット 2022-08-28 20 12 44" src="https://user-images.githubusercontent.com/106299497/187071203-b571ca5a-f4f2-4c11-9059-4a1bb5fb685d.png">
 
-##カレンダーページ
+## カレンダーページ
+
 <img width="1418" alt="スクリーンショット 2022-08-28 19 50 20" src="https://user-images.githubusercontent.com/106299497/187070540-f964286f-2821-4f96-96d9-f217d95cab0d.png">
 
 ## サイト概要
@@ -45,19 +46,19 @@
 
 ## 設計書
 
-### ER図
+- ### ER図
 ![マネ×マネ ER図-Page-1 drawio](https://user-images.githubusercontent.com/106299497/187067024-a22a19d3-f352-49b5-8d89-e0f08fd10aac.png)
 
-### テーブル定義書
+- ### テーブル定義書
 https://docs.google.com/spreadsheets/d/10ZyH_v6W5-k6v4WTLDdvXd61J2N8U4wkgz1ggBnHZAM/edit?usp=sharing
 
-### 詳細設計書
+- ### 詳細設計書
 https://docs.google.com/spreadsheets/d/11YTFdkkzxxeIlV2EnRBJOyb64CpqnNyPS1o48qCyqY4/edit?usp=sharing
 
-### 機能一覧
+- ### 機能一覧
 https://docs.google.com/spreadsheets/d/1URpFN0NePFIpRnGs_cwCrA6awmTfT3OkTdMsoErciG0/edit?usp=sharing
 
-### ワイヤーフレーム
+- ### ワイヤーフレーム
 https://docs.google.com/presentation/d/1iFp397IpZgyvXyHunDdUjnLud2hmliTeYZsbp2Iy2eI/edit?usp=sharing
 
 ## 開発環境
