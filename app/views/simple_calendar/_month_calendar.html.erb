@@ -1,14 +1,21 @@
+<!--ユーザーのshowページに表示している-->
 <div class="container my-4">
+  
   <div class="simple-calendar">
     <div class="calendar-heading">
+      
       <h4 class="row mb-3 justify-content-center">
-        <%= link_to t('simple_calendar.previous', default: '<<'), calendar.url_for_previous_view %><!--前月を<<で表示した-->
-        <span class="calendar-title"><%= start_date.year %>年<%= link_to t('date.month_names')[start_date.month], new_month_record_path(month: start_date) %></span><!--年と月入れ替え-->
+        <!--前月・次月を<<・>>で表示した-->
+        <%= link_to t('simple_calendar.previous', default: '<<'), calendar.url_for_previous_view %>
+        <!--年と月入れ替え-->
+        <span class="calendar-title"><%= start_date.year %>年<%= link_to t('date.month_names')[start_date.month], new_month_record_path(month: start_date) %></span>
         <%= link_to t('simple_calendar.next', default: '>>'), calendar.url_for_next_view %>
       </h4>
+      
     </div>
-  
+    
     <table class="table table-bordered">
+      <!--カレンダー内の曜日-->
       <thead>
         <tr class="text-center">
           <% date_range.slice(0, 7).each do |day| %>
@@ -22,7 +29,8 @@
           <% end %>
         </tr>
       </thead>
-  
+      
+      <!--カレンダー内の日付-->
       <tbody>
         <% date_range.each_slice(7) do |week| %>
           <tr>
@@ -38,6 +46,8 @@
           </tr>
         <% end %>
       </tbody>
+      
     </table>
+    
   </div>
 </div>

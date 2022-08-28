@@ -25,14 +25,18 @@ class DayRecord < ApplicationRecord
   validates :amusement, presence: true
   validates :day_other, presence: true
 
-  def day_expenditure_total #1日の支出合計
+  #1日の支出合計
+  def day_expenditure_total
     (food_cost + commodity + clothing + educate + medical_beauty + transport + socializing + amusement + day_other)
   end
   
-  def start_time #カレンダー内の日付毎に表示するため
+  #カレンダー内の日付毎に表示するため
+  def start_time
     self.year_month_date
   end
   
+  #引数で渡されたユーザidがbookmarksテーブル内に存在（exists?）するかどうか
+  #存在していればtrue、存在していなければfalse
   def bookmarked_by?(user)
     bookmarks.exists?(user_id: user.id)
   end

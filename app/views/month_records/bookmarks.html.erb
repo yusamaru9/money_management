@@ -19,10 +19,13 @@
     <div class="day-title font-weight-bold expenditure-total">支出合計</div>
     <div class="day-title">メモ・日記</div>
   </div>
-
+  
+  <!--日付から曜日を表示するため-->
   <% days = ["(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"] %>
+  
   <% @bookmarks.each do |bookmark| %>
     <div class="day-box">
+      
       <div class="day-index">
         <div id="bookmark_only_btn_<%= bookmark.day_record.id %>">
           <%= render 'bookmarks/bookmark_only',bookmark: bookmark %>
@@ -41,6 +44,7 @@
       <div class="day-index expenditure-total"><%= (bookmark.day_record.day_expenditure_total).to_s(:delimited) %>円</div>
        <!--truncate(bookmark.day_record.memo, :length => ○で表示文字数指定、文字の後ろの"..."が3文字として含まれ表示される-->
       <div class="day-index memo-box"><p><%= truncate(bookmark.day_record.memo, :length => 7) %></p></div>
+    
     </div>
   <% end %>
 </div>

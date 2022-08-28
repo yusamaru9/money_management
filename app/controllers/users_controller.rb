@@ -1,16 +1,19 @@
 class UsersController < ApplicationController
   
-  before_action :ensure_correct_user #他のユーザーページのURLを手打ちで入力しても遷移できないようにする
+  #他のユーザーページのURLを手打ちで入力しても遷移できないようにする
+  before_action :ensure_correct_user
   before_action :set_beginning_of_week
   
   def show
-    @day_records = current_user.day_records.all #ログインしているユーザー本人が記録した情報の全て（他のユーザーの記録した情報を表示させない）
+    #ログインしているユーザー本人が記録した情報の全て（他のユーザーの記録した情報を表示させない）
+    @day_records = current_user.day_records.all
   end
   
   
   private
   
-  def set_beginning_of_week #日曜日始まり
+  #カレンダーを日曜日始まりに変更
+  def set_beginning_of_week
     Date.beginning_of_week = :sunday
   end
   

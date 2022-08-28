@@ -24,15 +24,18 @@ class MonthRecord < ApplicationRecord
   validates :credit_card, presence: true
   validates :month_other, presence: true
   
-  def income_total #収入合計
+  #収入合計
+  def income_total
     (brought_forward + income)
   end
   
-  def expenditure_total #支出合計
+  #決まった支出合計
+  def expenditure_total
     (water_fare + gas_fare + electrical_fare + telephone_fare + deposit + insurance + credit_card + month_other)
   end
   
-  def freedom_money #使えるお金
+  #収入合計から決まった支出合計を引いた自由に使えるお金
+  def freedom_money
     (income_total - expenditure_total)
   end
   

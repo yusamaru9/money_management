@@ -33,8 +33,9 @@
     <!--each文の中の日付から曜日を表示で使用-->
     <% days = ["(日)","(月)","(火)","(水)","(木)","(土)","(日)"] %>
     
+    <!--カレントユーザーのday_recordの全てがあるか-->
     <% if @user_day_records.present? %>
-
+      <!--day_recordの記録が存在しているか-->
       <% if @day_records.present? %>
         <div class="row justify-content-center">
           <div class="col-md-3 mt-4 mb-1 font-weight-bold text-center">日付</div>

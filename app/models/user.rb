@@ -2,7 +2,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   
-  validates :name, presence: true #deviseの上に置くことでバリデーションエラーメッセージの順番を名前が上にくる
+  
+  #deviseの上に置くことでバリデーションエラーメッセージの順番を名前が上にくる
+  validates :name, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable #ここにdeviseのバリデーションがある
          
@@ -12,6 +14,7 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   
   
+  #ゲストログイン機能
   def self.guest
     find_or_create_by!(name: 'guestuser', email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64

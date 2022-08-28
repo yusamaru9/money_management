@@ -1,9 +1,15 @@
+<!--シンプルカレンダー-->
 <%= month_calendar events: @day_records do |date, day_records| %>
-  <% if day_records.present? %><!--userコントローラで定義しているday_recordsが存在しているかどうか-->
-    <%= link_to date.day, edit_day_record_path(day_records) %><!--編集ページへのpathは指定する-->
+  <!--userコントローラで定義しているday_recordsが存在しているかどうか-->
+  <% if day_records.present? %>
+    <!--編集ページへのpathは指定する-->
+    <%= link_to date.day, edit_day_record_path(day_records) %>
   <% else %>
-    <%= link_to date.day, new_day_record_path(day: date) %><!--.dayを追記することでカレンダー内の日付の年月が非表示になる-->
+    <!--dateの後ろに　.day　を追記することでカレンダー内の日付の年月が非表示になる-->
+    <%= link_to date.day, new_day_record_path(day: date) %>
   <% end %>
+  
+  <!--日付毎の枠内：day_recordの記録が0円だとアイコンが表示、falseだと合計金額が表示-->
   <% day_records.each do |day_record| %>
     <% if day_record.day_expenditure_total == 0 %>
       <h2 class="text-center"><i class="fas fa-piggy-bank"></i></h2>

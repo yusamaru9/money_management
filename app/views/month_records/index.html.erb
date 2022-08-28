@@ -9,6 +9,7 @@
       <h4><i class="fas fa-table"></i>&nbsp;各月収支一覧</h4>
     </div>
   </div>
+  
 </div>
 
   <div class="flex">
@@ -30,6 +31,7 @@
       <div class="month-title in-box font-weight-bold expenditure-total">支出合計</div>
       <div class="month-title in-box font-weight-bold freedom-money">使えるお金</div>
     </div>
+    
     <% @month_records.each do |month_record| %>
       <div class="month-box">
         <div class="month-index"><%= link_to month_record.year_month.strftime("%Y/%m"), month_record_path(month_record) %></div>
@@ -49,6 +51,7 @@
       </div>  
     <% end %>
   </div>
+  
 <div class="container mt-4 mb-5">
   <div class="row justify-content-center">
     <%= paginate @month_records %>
