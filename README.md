@@ -1,5 +1,7 @@
 # マネ×マネ
+<img width="210" alt="スクリーンショット 2022-08-28 20 12 44" src="https://user-images.githubusercontent.com/106299497/187071203-b571ca5a-f4f2-4c11-9059-4a1bb5fb685d.png">
 
+##カレンダーページ
 <img width="1418" alt="スクリーンショット 2022-08-28 19 50 20" src="https://user-images.githubusercontent.com/106299497/187070540-f964286f-2821-4f96-96d9-f217d95cab0d.png">
 
 ## サイト概要
@@ -65,6 +67,12 @@ https://docs.google.com/presentation/d/1iFp397IpZgyvXyHunDdUjnLud2hmliTeYZsbp2Iy
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+
+## Gem
+
+- simple calendar
+- device
+- kaminari
 
 ## 使用素材
 
