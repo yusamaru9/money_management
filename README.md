@@ -35,7 +35,9 @@
 - 家計の見直しをする時
 
 ## 設計書
-...
+### ER図
+![マネ×マネ ER図-Page-1 drawio](https://user-images.githubusercontent.com/106299497/187067024-a22a19d3-f352-49b5-8d89-e0f08fd10aac.png)
+
 
 ## 開発環境
 - OS：Linux(CentOS)
