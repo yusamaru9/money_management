@@ -39,7 +39,7 @@ rails_env = Rails.env.to_sym
 set :environment, rails_env
 set :output, 'log/cron.log'
 set :chronic_options, hours24: true
-every 1.day, at: '12:00' do
+every 1.day, at: '12:15' do
   begin
     runner "Batch::DateCreate.date_create"
   rescue => e
