@@ -27,6 +27,6 @@ module MoneyManagement
     #バリデーションのエラーfieldがfield_with_errorsになりレイアウトが崩れるのを防ぐ
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
     #バッチ処理のlibを読み込むため
-    config.autoload_paths << Rails.root.join("lib")
+    config.paths.add 'lib', eager_load: true
   end
 end
