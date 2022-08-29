@@ -19,12 +19,27 @@
 
 # Learn more: http://github.com/javan/whenever
 
+# require 'active_support/corre_ect/time'
+# def jst(time)
+#.  Time.zone = 'Asia/Tokyo'
+#.  Time.zone.parse(time).localtime($system_utc_offset)
+# end
+# 
+# every 1.day, at: jst('0:00 am') do
+#   begin
+#     runner "Batch::DateCreate.date_create"
+#   rescue => e
+#     Rails.logger.error("aborted rails runner")
+#     raise e
+#   end
+# end
+
 require File.expand_path(File.dirname(__FILE__) + "/environment")
 rails_env = Rails.env.to_sym
 set :environment, rails_env
 set :output, 'log/cron.log'
 set :chronic_options, hours24: true
-every 1.minute do
+every 1.day, at: '12:00' do
   begin
     runner "Batch::DateCreate.date_create"
   rescue => e
