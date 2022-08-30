@@ -58,16 +58,16 @@
 ![マネ×マネ ER図-Page-1 drawio](https://user-images.githubusercontent.com/106299497/187067024-a22a19d3-f352-49b5-8d89-e0f08fd10aac.png)
 
 - ### テーブル定義書
-file:///Users/satouyuki/Downloads/%E3%83%9E%E3%83%8D%C3%97%E3%83%9E%EF%BC%9A%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E6%8F%90%E8%AD%B0%E6%9B%B8%20.pdf
+[マネ×マ：テーブル提議書 .pdf](https://github.com/yusamaru9/money_management/files/9451339/x.pdf)
 
 - ### 詳細設計書
-file:///Users/satouyuki/Downloads/%E3%83%9E%E3%83%8D%C3%97%E3%83%9E%E3%83%8D%EF%BC%9A%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E8%A9%B3%E7%B4%B0%E8%A8%AD%E8%A8%88%E6%9B%B8%E5%8E%9F%E6%9C%AC%20%E3%81%AE%E3%82%B3%E3%83%94%E3%83%BC%20-%20%E3%83%9E%E3%83%8D%E3%83%9E%E3%83%8Droutes.pdf
+[マネ×マネ：アプリケーション詳細設計書 - マネマネroutes.pdf](https://github.com/yusamaru9/money_management/files/9451348/x.-.routes.pdf)
 
 - ### 機能一覧
-file:///Users/satouyuki/Downloads/%E3%83%9E%E3%83%8D%C3%97%E3%83%9E%E3%83%8D%EF%BC%9A%E6%A9%9F%E8%83%BD%E4%B8%80%E8%A6%A7%20%20-%20%E3%82%B7%E3%83%BC%E3%83%881.pdf
+[マネ×マネ：機能一覧  - シート1.pdf](https://github.com/yusamaru9/money_management/files/9451330/x.-.1.pdf)
 
 - ### ワイヤーフレーム
-file:///Users/satouyuki/Downloads/%E3%83%9E%E3%83%8D%C3%97%E3%83%9E%E3%83%8D%E3%80%80%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%20.pdf
+[マネ×マネ　ワイヤーフレーム .pdf](https://github.com/yusamaru9/money_management/files/9451335/x.pdf)
 
 ## 開発環境
 
