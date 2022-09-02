@@ -19,6 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
+# ここからは本番環境で時差があった時
 # require 'active_support/corre_ect/time'
 # def jst(time)
 #.  Time.zone = 'Asia/Tokyo'
