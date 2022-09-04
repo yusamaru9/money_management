@@ -26,6 +26,8 @@ class DayRecord < ApplicationRecord
     validates :amusement
     validates :day_other
   end
+  
+  validates :memo, length: { maximum: 50 }
 
   #1日の支出合計
   def day_expenditure_total

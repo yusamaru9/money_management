@@ -25,6 +25,7 @@ ja:
         socializing: "交際"
         amusement: "娯楽"
         day_other: "その他"
+        memo: "メモ・日記"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
