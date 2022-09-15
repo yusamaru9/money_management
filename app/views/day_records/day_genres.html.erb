@@ -97,6 +97,9 @@
       </div>
     <% end %>
     
+    <% if @check == "true" %>
       <%= link_to "<< 週間支出一覧へ戻る", day_records_path %>
+    <% elsif @check == "false" %>
       <%= link_to "<< ブックマーク一覧へ戻る", bookmarks_month_records_path %>
+    <% end %>
 </div>

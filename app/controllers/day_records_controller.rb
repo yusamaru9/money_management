@@ -63,6 +63,8 @@ class DayRecordsController < ApplicationController
     #@paramsに各カラム（item）を入れる
     @params = params[:item]
     
+    @check = params[:check]
+    
     #フィールドで送られた値を整数型へ変更し、定義する
     @year = params["year_month_date(1i)"].to_i
     @month = params["year_month_date(2i)"].to_i
