@@ -10,44 +10,10 @@
 </div>
 
 <div class="flex">
-  <div class="day-box">
-    <div class="day-title oblique-line">
-      
-      <div></div>
-      <p class="title-item m-0">項目</p>
-      <p class="title-day m-0">月日</p></div>
-      
-    <div class="day-title">
-      <%= link_to "食費", day_genres_path(item: "food_cost") %>
-    </div>
-    <div class="day-title">
-      <%= link_to "日用品", day_genres_path(item: "commodity") %>
-    </div>
-    <div class="day-title">
-      <%= link_to "被服", day_genres_path(item: "clothing") %>
-    </div>
-    <div class="day-title">
-      <%= link_to "教育・教養", day_genres_path(item: "educate") %>
-    </div>
-    <div class="day-title">
-      <%= link_to "医療・美容", day_genres_path(item: "medical_beauty") %>
-    </div>
-    <div class="day-title">
-      <%= link_to "交通", day_genres_path(item: "transport") %>
-    </div>
-    <div class="day-title">
-      <%= link_to "交際", day_genres_path(item: "socializing") %>
-    </div>
-    <div class="day-title">
-      <%= link_to "娯楽", day_genres_path(item: "amusement") %>
-    </div>
-    <div class="day-title">
-      <%= link_to "その他", day_genres_path(item: "day_other") %>
-    </div>
-    <div class="day-title font-weight-bold expenditure-total">合計金額</div>
-    <div class="day-title">メモ・日記</div>
-  </div>
   
+  <div class="day-box">
+    <%= render 'dayrecord_index' %>
+  </div>
   <!--日付から曜日を表示するため-->
   <% days = ["(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"] %>
   
@@ -74,6 +40,7 @@
       <div class="day-index memo-box"><p><%= truncate(day_record.memo, :length => 7) %></p></div>
     </div>
   <% end %>
+  
 </div>
 
 <div class="container mt-4 mb-5">
