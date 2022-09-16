@@ -62,7 +62,7 @@ class DayRecordsController < ApplicationController
   def day_genres
     #@paramsに各カラム（item）を入れる
     @params = params[:item]
-    
+    #ジャンル詳細ページから一覧へのリンクの分岐条件
     @check = params[:check]
     
     #フィールドで送られた値を整数型へ変更し、定義する
@@ -92,25 +92,25 @@ class DayRecordsController < ApplicationController
       @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(commodity: 0).order(year_month_date: :asc)
       
     elsif @params == "clothing" #被服
-      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(clothing: 0)
+      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(clothing: 0).order(year_month_date: :asc)
       
     elsif @params == "educate" #教育・教養
-      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(educate: 0)
+      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(educate: 0).order(year_month_date: :asc)
       
     elsif @params == "medical_beauty" #医療・美容
-      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(medical_beauty: 0)
+      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(medical_beauty: 0).order(year_month_date: :asc)
       
     elsif @params == "transport" #交通
-      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(transport: 0)
+      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(transport: 0).order(year_month_date: :asc)
       
     elsif @params == "socializing" #交際
-      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(socializing: 0)
+      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(socializing: 0).order(year_month_date: :asc)
       
     elsif @params == "amusement" #娯楽
-      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(amusement: 0)
+      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(amusement: 0).order(year_month_date: :asc)
       
     elsif @params == "day_other" #日その他
-      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(day_other: 0)
+      @day_records = current_user.day_records.where(year_month_date: beginning...last).where.not(day_other: 0).order(year_month_date: :asc)
     end
     
     #カレントユーザーのday_record全てにしないと他のユーザーのデータが反映されてしまうので
