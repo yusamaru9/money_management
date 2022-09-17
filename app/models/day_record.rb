@@ -34,10 +34,6 @@ class DayRecord < ApplicationRecord
     (food_cost + commodity + clothing + educate + medical_beauty + transport + socializing + amusement + day_other)
   end
   
-  def comma()
-    
-  end
-  
   #カレンダー内の日付毎に表示するため
   def start_time
     self.year_month_date
