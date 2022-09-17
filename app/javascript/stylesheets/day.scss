@@ -61,3 +61,14 @@
   bottom: 6px;
   right: 6px;
 }
+
+//ブックマークアイコン
+.bookmark-icon {
+  margin-right: 2px;
+}
+.bookmark-icon:hover {
+  transform: scale(1.2);
+}
+.bookmark-icon-Big:hover {
+  transform: scale(1.3);
+}

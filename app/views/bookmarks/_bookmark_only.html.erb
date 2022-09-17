@@ -1,9 +1,9 @@
 <% if bookmark.day_record.bookmarked_by?(current_user) %>
   <%= link_to day_record_bookmarks_path(bookmark.day_record.id), method: :delete, remote: true do %>
-    <i class="fas fa-bookmark"></i>
+    <i class="fas fa-bookmark bookmark-icon"></i>
   <% end %>
 <% else %>
   <%= link_to day_record_bookmarks_path(bookmark.day_record.id), method: :post, remote: true do %>
-    <i class="far fa-bookmark"></i>
+    <i class="far fa-bookmark bookmark-icon"></i>
   <% end %>
 <% end %>
