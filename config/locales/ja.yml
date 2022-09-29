@@ -16,6 +16,7 @@ ja:
         credit_card: "クレジットカード"
         month_other: "その他"
       day_record:
+        year_month_date: ""
         food_cost: "食費"
         commodity: "日用品"
         clothing: "被服"

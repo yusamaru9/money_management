@@ -28,6 +28,19 @@ class DayRecord < ApplicationRecord
   end
   
   validates :memo, length: { maximum: 50 }
+  
+  validate :date_valid?
+
+  def date_valid?
+    date = year_month_date_before_type_cast
+    return if date.blank?
+    y = date[1]
+    m = date[2]
+    d = date[3]
+    unless Date.valid_date?(y, m, d)
+      errors.add(:year_month_date, "日付の値が不正です")
+    end
+  end
 
   #1日の支出合計
   def day_expenditure_total
